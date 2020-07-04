@@ -1,0 +1,64 @@
+/*
+* @Author: wangchen
+* @Date:   2020-07-03 13:47:23
+* @Last Modified by:   wangchen
+* @Last Modified time: 2020-07-03 13:47:23
+*/
+
+._slideshow {
+	.carousel-root {
+		max-width: 700px;
+		margin:0 auto;
+
+		div {
+			position:relative;
+			-webkit-box-shadow:0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1) inset;
+			-moz-box-shadow:0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1) inset;
+			box-shadow:0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1) inset;
+
+			&:before,&:after {
+				content:"";
+			    position:absolute;
+			    z-index:-1;
+			    -webkit-box-shadow:0 0 20px rgba(0,0,0,0.8);
+			    -moz-box-shadow:0 0 20px rgba(0,0,0,0.8);
+			    box-shadow:0 0 20px rgba(0,0,0,0.8);
+			    top:0;
+			    bottom:0;
+			    left:10px;
+			    right:10px;
+			    -moz-border-radius:100px / 10px;
+			    border-radius:100px / 10px;
+			}
+			&:after {
+				right:10px;
+				left:auto;
+				-webkit-transform:skew(8deg) rotate(3deg);
+				-moz-transform:skew(8deg) rotate(3deg);
+				-ms-transform:skew(8deg) rotate(3deg);
+				-o-transform:skew(8deg) rotate(3deg);
+				transform:skew(8deg) rotate(3deg);
+			}
+
+			img {
+				height: 400px;
+			}
+		}
+	}
+	/* 移动端适配 */
+	@media screen and (max-width: 500px) {
+		.carousel-root {
+			width: 100%;
+			margin:0 auto;
+			min-width: 330px;
+			div {
+				transform: scale(1);
+			    box-shadow: 0px 0px 10px 5px rgba(0, 0, 0, 0.3);
+			    transition: box-shadow 0.5s, transform 0.5s;
+				img {
+					height: 50%;
+				}
+			}
+		} 
+	}
+}

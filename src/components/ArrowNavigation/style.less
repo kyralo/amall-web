@@ -1,0 +1,110 @@
+.nav-circlepop {
+  background: #cc6055;
+  height: 100%;
+  width: 100%;
+
+  a {
+    position: relative;
+    top: 50%;
+    display: inline-block;
+    outline: none;
+    z-index: 1000;
+    -webkit-transform: translateY(-50%);
+    transform: translateY(-50%);
+    margin: 0 30px;
+    width: 50px;
+    height: 50px;
+
+    &::before {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      background: #fff;
+      content: '';
+      opacity: 0;
+      -webkit-transition: -webkit-transform 0.3s, opacity 0.3s;
+      transition: transform 0.3s, opacity 0.3s;
+      -webkit-transform: scale(0.9);
+      transform: scale(0.9);
+    }
+    &.next {
+      margin-right: 0;
+      .icon-wrap {
+        -webkit-transform: rotate(180deg);
+        transform: rotate(180deg);
+      }
+    }
+	&.prev {
+	  margin-left: 0;
+	}
+    &:hover {
+      &::before {
+        opacity: 1;
+        -webkit-transform: scale(1);
+        transform: scale(1);
+      }
+      .icon-wrap {
+        &::before {
+          -webkit-transform: translateX(-50%) rotate(45deg);
+          transform: translateX(-50%) rotate(45deg);
+        }
+        &::after {
+          -webkit-transform: translateX(-50%) rotate(-45deg);
+          transform: translateX(-50%) rotate(-45deg);
+        }
+      }
+    }
+  }
+  .prev {
+    left: 0;
+  }
+  .next {
+    right: 0;
+  }
+  .icon-wrap {
+    position: absolute;
+    display: block;
+    margin: 10% 0 0 10%;
+    width: 80%;
+    height: 80%;
+    &::before {
+      -webkit-transform: translateX(-50%) rotate(30deg);
+      transform: translateX(-50%) rotate(30deg);
+      -webkit-transform-origin: 0 100%;
+      transform-origin: 0 100%;
+    }
+    &::after {
+      top: 50%;
+      -webkit-transform: translateX(-50%) rotate(-30deg);
+      transform: translateX(-50%) rotate(-30deg);
+      -webkit-transform-origin: 0 0;
+      transform-origin: 0 0;
+    }
+  }
+}
+/*--------------------*/
+/* Circle pop */
+/*--------------------*/
+.color-3 {
+  height: 400px;
+}
+.nav-circlepop .icon-wrap::before,
+.nav-circlepop .icon-wrap::after {
+  position: absolute;
+  left: 25%;
+  width: 3px;
+  height: 50%;
+  background: #fff;
+  content: '';
+  -webkit-transition: -webkit-transform 0.3s, background-color 0.3s;
+  transition: transform 0.3s, background-color 0.3s;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+}
+.nav-circlepop a:hover .icon-wrap::before,
+.nav-circlepop a:hover .icon-wrap::after {
+  background: #cc6055;
+}
