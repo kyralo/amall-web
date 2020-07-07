@@ -2,9 +2,90 @@
 
 ._home {
 	background-color: @baseColor;
+	width: 100%;
 	text-align: center;
-	padding: 0.5em 1em;
-	font-size: 2em;
+	// font-size: 2em;
+
+	._content {
+		width: 80%;
+		margin: 0 auto;
+		padding: 10px 0;
+		.fs_pc_top_bar {
+			height: 30px;
+			background-color: rgb(255,80,0);
+			display: inline-flex;
+			width: 100%;
+			color: #FFF;
+			padding: 0.5em 0em;
+
+			.fs_pc_theme_shop_title  {
+				width: 25%;
+			}
+
+			.fs_pc_activity_title {
+				width: 55%;
+				border-left: 3px dotted #FAFAFA;
+				border-right: 3px dotted #FAFAFA;
+			}
+
+			.fs_pc_base_info_title {
+				width: 20%;
+			}
+		}
+
+		.fs_pc_content{
+			width: 100%;
+			display: inline-flex;
+			padding: 5px 0px;
+			.fs_pc_theme_shop {
+				width: 25%;
+				background-color: #FFF;
+				padding-top: 6px;
+				display: flex;
+				flex-flow: column wrap;
+				justify-content: space-between;
+				// border: 0.5px solid rgb(255,80,0,0.2);
+
+				.fs_pc_theme_shop_content{
+					width: 100%;
+					height: 32px;
+					display: inline-flex;
+					text-align: center;
+					padding: 6px 0;
+					.fs_pc_fir_kind {
+						width: 25%;
+						font-family: Droid Sans;
+						font-size: 1.1em;
+						border-right: 0.1px solid #000;
+						display: inline-flex;
+						padding: 0 5px;
+						background-color: rgb(255,244,207,0.4);
+						div {
+							margin: 0 2px 0;
+							overflow: hidden;
+							text-overflow: ellipsis;
+							white-space: nowrap;
+						}
+					}
+					.fs_pc_sec_kind {
+						width: 75%;
+					}
+				}
+			}
+
+			.fs_pc_activity {
+				width: 55%;
+				padding: 0px 10px;
+				margin: 0 auto;
+			}
+
+			.fs_pc_base_info {
+				width: 20%;
+				padding: 6px 10px;
+				background-color: #FFF;
+			}
+		}
+	}
 }
 
 
@@ -13,5 +94,61 @@
 	._home {
 		text-align: center;
 		padding: 0.5em 1em;
+
+		._content {
+			width: 100%;
+			// margin: 0 auto;
+			padding: 10px 0;
+
+			.fs_mb {
+				width: 100%;
+				.fs_mb_activity{
+					box-shadow: 0 3px 0 rgb(245,246,247);
+					margin: 4px 5px;
+				}
+
+				.fs_mb_title {
+					margin-top: 10px;
+					margin-bottom: 0px;
+					margin-left: 5px;
+					margin-right: 5px;
+					text-align: left;
+				}
+
+				.fs_mb_theme_shop{
+					width: 100%;
+					margin: 0px 5px;
+					padding: 5px 10px;
+					background-color: #FFF;
+					box-shadow: 1px 1px 1px 1px rgba(0, 0, 0, 0.3);
+					border-radius: 1px;
+				}
+			}
+		}
 	}	 
+}
+
+.ant-carousel .slick-slide {
+	height: 180px;
+	text-align: center;
+	position: default;
+	display: block;
+}
+
+.ant-carousel .slick-dots li button {
+	background: rgb(255,80,0,0.3);
+}
+
+.ant-carousel .slick-dots li.slick-active button {
+	background: rgb(255,80,0,0.1);
+}
+
+.ant-carousel .slick-dots-bottom {
+	bottom: 0px;
+}
+
+.slick-dots .slick-dots-bottom {
+	margin-top: 30px;
+	display: block;
+	position: default;
 }

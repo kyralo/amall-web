@@ -4,14 +4,13 @@
 
 	div {
 		display: inline-flex;
-	    padding: 10px 0;
+	    padding: 5px 0;
 	}
 	
 	.content {
 	    margin: 0 auto;
 	    width: 100%;
 	    box-shadow: 0 3px 0 rgb(245,246,247);
-
 	    ._search {
 		    form {
 		        position: relative;
@@ -31,65 +30,24 @@
 		    }
 
 		    button {
-		        height: 42px;
-		        width: 42px;
+		        height: 30px;
+		        width: 27px;
 		        cursor: pointer;
 		        position: absolute;
 		    }
 	    }
-		
-
 
 	    div{
 	    	width: 33.3%;
 	    }
 
 	    ._logo {
+	    	padding: 10px 0;
 		    img {
-		    	height: 44px;
+		    	height: 30px;
 		    	position: absolute;
 		    	left: 30px;
 		    }
-	    }
-
-
-	    /* 移动端适配 */
-	    @media screen and (max-width: 500px) {
-	        padding: 20px 0;
-
-		    ._logo {
-		    	width: 22.2%;
-			    img {
-			    	width: 80px;
-			    	height: 44px;
-			    	position: absolute;
-			    	left: 0px;
-			    }
-		    }
-
-	        ._search {
-	        	width: 66.6%; 
-		        form {
-		            width: 200px;
-					margin-left: 10px;
-		        } 
-
-		        input {
-		        	padding-left: 15px;
-		        }
-
-    		    button {
-			        height: 30px;
-			        width: 27px;
-			        cursor: pointer;
-			        position: absolute;
-			    }
-			}
-
-			._avatar {
-				width: 12.2%;
-			}
-
 	    }
 	}
 
@@ -108,7 +66,7 @@
 	        width: 26px;
 	        top: 6px;
 	        right: 7px;
-	        background: #F15B42;
+	        background: #FF5000;
 
 	        &:before {
 	            content: "\f105";
@@ -120,4 +78,51 @@
 	        
 	    }
 	}
+
+    /* 移动端适配 */
+    @media screen and (max-width: 500px) {
+
+		div {
+			display: inline-flex;
+		    padding: 0;
+		}
+
+        .content {
+        	padding: 10px 0;
+        	display: inline-flex;
+        	width: 100%;
+		    ._logo {
+		    	width: 22.2%;
+		    	padding: 5px 0px;
+			    img {
+			    	width: 70px;
+			    	height: 32px;
+			    	position: absolute;
+			    	left: 0px;
+			    }
+		    }
+
+	        ._search {
+	        	width: 60%; 
+		        form {
+		            width: 200px;
+		        } 
+
+		        input {
+		        	padding-left: 15px;
+		        }
+
+			    button {
+			        height: 30px;
+			        width: 27px;
+			        cursor: pointer;
+			        position: absolute;
+			    }
+			}
+
+			._avatar {
+				width: 12.2%;
+			}
+        }
+    }
 }

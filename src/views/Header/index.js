@@ -2,23 +2,37 @@
 * @Author: wangchen
 * @Date:   2020-07-04 08:39:43
 * @Last Modified by:   wangchen
-* @Last Modified time: 2020-07-05 00:47:19
+* @Last Modified time: 2020-07-06 22:35:52
 */
 import React from 'react';
 
 import './style.less';
 
-import LogoIcon from './amall.png';
+import { 
+	useSize,
+} from 'ahooks';
+
+import LogoPcIcon from './amall-pc.png';
+import LogoMobileIcon from './amall-mobile.png';
 
 import { Avatar } from 'antd';
 import { UserOutlined } from '@ant-design/icons';
 
 const Header = (props) => {
+
+	const dom = document.querySelector('body');
+	const size = useSize(dom);
+
   return (
     <div className='_header'>
 	    <div className="content bar">
 	    	<div className="_logo">
-	    		<img src={LogoIcon} alt='amall' />
+	    		{
+	    			size.width >= 500 ?
+	    			<img src={LogoPcIcon} alt='amall' />
+	    			:
+	    			<img src={LogoMobileIcon} alt='amall' />
+	    		}
 	    	</div>
 			
 			<div className="_search">

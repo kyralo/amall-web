@@ -2,16 +2,17 @@
 * @Author: wangchen
 * @Date:   2020-06-25 16:41:40
 * @Last Modified by:   wangchen
-* @Last Modified time: 2020-06-25 18:28:15
+* @Last Modified time: 2020-07-05 16:42:18
 */
-import React from 'react'
-import { Route, Redirect, Switch } from 'react-router-dom'
+import React from 'react';
+import { Route, Redirect, Switch } from 'react-router-dom';
 
 import Home from '@views/Home';
 
 const renderRoutes = (routes, authed, authPath = '/login', extraProps = {}, switchProps = {}) => routes ? (
   <Switch {...switchProps}>
     {routes.map((route, i) => (
+
       <Route
         key={route.key || i}
         path={route.path}
@@ -25,8 +26,8 @@ const renderRoutes = (routes, authed, authPath = '/login', extraProps = {}, swit
         }}
       />
     ))}
-    <Redirect from='/' to='/amall/home'/>
-    <Redirect from='/amall' to='/amall/home'/>
+
+    <Redirect push to="/home"/>
   </Switch>
 ) : null
 

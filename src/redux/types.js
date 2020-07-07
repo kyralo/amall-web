@@ -2,13 +2,14 @@
 * @Author: wangchen
 * @Date:   2020-07-04 10:22:02
 * @Last Modified by:   wangchen
-* @Last Modified time: 2020-07-04 20:57:17
+* @Last Modified time: 2020-07-06 20:22:01
 */
 
 // >>>> reducer
 
 // COMMON 
-export const TOKEN_MODIFY = 'token_modify'; 
+export const TOKEN_MODIFY = 'token_modify';
+export const PLATFORM_CHANGE = 'platform_change';  
  
 // USER
 
