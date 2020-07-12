@@ -2,18 +2,15 @@
 * @Author: wangchen
 * @Date:   2020-07-05 20:33:16
 * @Last Modified by:   wangchen
-* @Last Modified time: 2020-07-06 20:57:25
+* @Last Modified time: 2020-07-07 18:38:35
 */
 
 import React, {
   Suspense,
   useReducer,
-  useLayoutEffect
 } from 'react';
 
-import { 
-  useSize,
-} from 'ahooks';
+import { useSize } from 'ahooks';
 
 import { BrowserRouter,Switch } from 'react-router-dom';
 

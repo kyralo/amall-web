@@ -2,7 +2,7 @@
 * @Author: wangchen
 * @Date:   2020-07-04 10:22:02
 * @Last Modified by:   wangchen
-* @Last Modified time: 2020-07-06 20:22:01
+* @Last Modified time: 2020-07-07 18:20:51
 */
 
 // >>>> reducer
@@ -20,6 +20,10 @@ export const USER_DEMO = 'user_demo';
 
 export const ADMIN_DEMO = 'admin_demo'; 
 
+// SECKILL
+
+export const SECKILL_LIST_MODIFY = 'seckill_list_modify';
+
 
 // >>>> saga
  
@@ -31,3 +35,8 @@ export const USER_DEMO_SAGA = 'user_demo_saga';
 // ADMIN
 
 export const ADMIN_DEMO_SAGA = 'user_demo_saga';
+
+
+// SECKILL
+
+export const SECKILL_LIST_QUERY = 'seckill_list_query';

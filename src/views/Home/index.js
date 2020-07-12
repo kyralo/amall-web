@@ -2,7 +2,7 @@
 * @Author: wangchen
 * @Date:   2020-06-24 13:53:10
 * @Last Modified by:   wangchen
-* @Last Modified time: 2020-07-07 08:28:36
+* @Last Modified time: 2020-07-10 16:00:02
 */
 import React, {useReducer,useState,useLayoutEffect} from 'react';
 
@@ -14,24 +14,38 @@ import {
 import { Avatar, Carousel } from 'antd';
 
 import user, * as userReducer from '@store/user';
-import common, * as commonReducer from '@store/common';
-
 import { userDemo } from '@store/user/creators';
+
+import common, * as commonReducer from '@store/common';
 import { platformChange } from '@store/common/creators';
+
+import seckill, * as seckillReducer from '@store/seckill';
+import { seckillListQuery } from '@store/seckill/creators';
 
 import { AIcon } from '@utils/icon';
 
 import './style.less';
+import { oneToTwoArr } from '@utils/common';
 
 import Slideshow from '@comp/Slideshow';
 import Textshow from '@comp/Textshow';
 import MobileKindSlick from '@comp/MobileKindSlick';
+import ProductCard from '@comp/ProductCard';
+import SeckillFacade from '@comp/SeckillFacade';
+import ProductModule from '@comp/ProductModule';
+
+
 
 const arr = [0,1,2,3,4,5,6,7,8,9,10,11];
+
+const arr1 = [0,1,2];
+
+const arr2 = [0,1,2,0,1,2,0,1,2,0,1,2,0,1,2,0,1,2,0,1,2,0,1,2,0,1,2,0,1,2,0,1,2,];
 
 const Home = (props) => {
 
 	const [userState, userDispatch] = useReducer(user,userReducer.defaultState);
+	const [seckillState, seckillDispatch] = useReducer(seckill,seckillReducer.defaultState);
 	const [commonState, commonDispatch] = useReducer(common,commonReducer.defaultState);
 
 	const scroll = useScroll(document);
@@ -52,27 +66,10 @@ const Home = (props) => {
 			}
 			commonDispatch(platformChange({ isMobile: false }))
 		}
-
-		console.log(mobileFirKindArr(arr))
+		console.log(commonState, 'home')
 	}, [size]);
 
-	const mobileFirKindArr = (array) => {
-		let firLength = array.length % 10;
-		let newArr = []
-
-		if (firLength === 0) {
-			newArr.push(array);
-			return newArr;
-		}
-
-		for (let i = 0; i < firLength-1; i++) {
-			newArr.push(array.slice(i*10,(i+1)*10));
-		}
-
-		newArr.push(array.slice((firLength-1)*10,array.length)); 
-
-		return newArr;
-	}
+	const mobileFirKindArr = (array) => { return oneToTwoArr(array,10); }
 	
 	return (
 		<div className='_home'>
@@ -88,6 +85,7 @@ const Home = (props) => {
 
 					!commonState.isMobile ?
 
+					// pc
 					<div className="fs_pc">
 						<div className="fs_pc_top_bar">
 							<div className="fs_pc_theme_shop_title">主题市场</div>
@@ -125,10 +123,62 @@ const Home = (props) => {
 								暂无
 							</div>
 						</div>
+
+						<div className="fs_pc_seckill">
+							<div className="fs_pc_seckill_facade">
+								<SeckillFacade 
+									field={seckillState.currentSeckill.secTimeField}
+									current={seckillState.currentSeckill}
+								/>
+							</div>
+							<div className="fs_pc_seckill_product">
+								<div className="fs_pc_seckill_product_card">
+									<ProductCard/>
+								</div>
+
+								<div className="fs_pc_seckill_product_card">
+									<ProductCard/>
+								</div>
+
+								<div className="fs_pc_seckill_product_card">
+									<ProductCard/>
+								</div>
+
+								<div className="fs_pc_seckill_product_card">
+									<ProductCard/>
+								</div>
+
+								<div className="fs_pc_seckill_product_card">
+									<ProductCard/>
+								</div>
+							</div>
+						</div>
+
+						<div className="fs_pc_product_module">
+							{
+								arr1.map((item,key) => (
+									<ProductModule key={key}/>
+								))
+							}
+						</div>
+
+						<div className="fs_pc_product_recommend_title">
+							猜你喜欢
+						</div>
+						<div className="fs_pc_product_recommend">
+							{
+								arr2.map((item,key) => (
+									<div className="fs_pc_product_recommend_item">
+										<ProductCard key={key}/>
+									</div>
+								))
+							}
+						</div>
 					</div>
 
 					:
 
+					// mobile
 					<div className="fs_mb">
 						<div className="fs_mb_activity">
 							<div>
@@ -141,7 +191,6 @@ const Home = (props) => {
 						</div>
 
 						<div className="fs_mb_theme_shop">
-							
 							<Carousel autoplay>
 								{
 									mobileFirKindArr(arr).map((item0,key0) => (
@@ -150,6 +199,14 @@ const Home = (props) => {
 
 								}	
 							</Carousel>
+						</div>
+
+						<div className="fs_mb_title">
+							<h2>今日必抢</h2>
+						</div>
+
+						<div className="fs_mb_seckill">
+							<ProductCard/>
 						</div>
 					</div>
 
