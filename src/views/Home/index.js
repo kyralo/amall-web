@@ -2,7 +2,7 @@
 * @Author: wangchen
 * @Date:   2020-06-24 13:53:10
 * @Last Modified by:   wangchen
-* @Last Modified time: 2020-07-10 16:00:02
+* @Last Modified time: 2020-07-13 13:19:37
 */
 import React, {useReducer,useState,useLayoutEffect} from 'react';
 
@@ -30,6 +30,7 @@ import { oneToTwoArr } from '@utils/common';
 import Slideshow from '@comp/Slideshow';
 import Textshow from '@comp/Textshow';
 import MobileKindSlick from '@comp/MobileKindSlick';
+import SecProductCard from '@comp/SecProductCard';
 import ProductCard from '@comp/ProductCard';
 import SeckillFacade from '@comp/SeckillFacade';
 import ProductModule from '@comp/ProductModule';
@@ -37,9 +38,8 @@ import ProductModule from '@comp/ProductModule';
 
 
 const arr = [0,1,2,3,4,5,6,7,8,9,10,11];
-
+const arrSec=[0,1,2,3,4,5];
 const arr1 = [0,1,2];
-
 const arr2 = [0,1,2,0,1,2,0,1,2,0,1,2,0,1,2,0,1,2,0,1,2,0,1,2,0,1,2,0,1,2,0,1,2,];
 
 const Home = (props) => {
@@ -132,25 +132,13 @@ const Home = (props) => {
 								/>
 							</div>
 							<div className="fs_pc_seckill_product">
-								<div className="fs_pc_seckill_product_card">
-									<ProductCard/>
-								</div>
-
-								<div className="fs_pc_seckill_product_card">
-									<ProductCard/>
-								</div>
-
-								<div className="fs_pc_seckill_product_card">
-									<ProductCard/>
-								</div>
-
-								<div className="fs_pc_seckill_product_card">
-									<ProductCard/>
-								</div>
-
-								<div className="fs_pc_seckill_product_card">
-									<ProductCard/>
-								</div>
+								{
+									arrSec.map((item,key) => (
+										<div key={key} className="fs_pc_seckill_product_card">
+											<SecProductCard/>
+										</div>
+									))
+								}
 							</div>
 						</div>
 
@@ -162,14 +150,17 @@ const Home = (props) => {
 							}
 						</div>
 
-						<div className="fs_pc_product_recommend_title">
-							猜你喜欢
+						<div style={{
+							fontSize: '12px',
+							textShadow: '0.3px 0.3px 0.3px rgb(0,0,0,0.7)',
+						}} className="fs_pc_product_recommend_title">
+							<h1>猜你喜欢</h1>
 						</div>
 						<div className="fs_pc_product_recommend">
 							{
 								arr2.map((item,key) => (
-									<div className="fs_pc_product_recommend_item">
-										<ProductCard key={key}/>
+									<div key={key} className="fs_pc_product_recommend_item">
+										<ProductCard addCol='true'/>
 									</div>
 								))
 							}

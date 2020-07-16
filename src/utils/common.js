@@ -2,7 +2,7 @@
 * @Author: wangchen
 * @Date:   2020-07-06 21:03:29
 * @Last Modified by:   wangchen
-* @Last Modified time: 2020-07-10 13:57:51
+* @Last Modified time: 2020-07-15 18:15:07
 */
 
 export const oneToTwoArr = (array,value) => {
@@ -18,7 +18,9 @@ export const oneToTwoArr = (array,value) => {
 			newArr.push(array.slice(i*value,(i+1)*value));
 		}
 
-		newArr.push(array.slice((firLength)*value,array.length)); 
+		if (firLength*value < array.length) {
+			newArr.push(array.slice((firLength)*value,array.length));
+		} 
 
 		return newArr;
 }

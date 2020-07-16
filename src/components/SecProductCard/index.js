@@ -1,20 +1,17 @@
 /*
 * @Author: wangchen
-* @Date:   2020-07-07 09:34:33
+* @Date:   2020-07-12 20:15:28
 * @Last Modified by:   wangchen
-* @Last Modified time: 2020-07-14 11:30:49
+* @Last Modified time: 2020-07-13 21:17:36
 */
 import React from 'react';
 import './style.less';
 
 import { Tooltip } from 'antd';
 
-import { AIcon } from '@utils/icon';
-
-const ProductCard = (props) => {
-
+const SecProductCard = (props) => {
   return (
-    <div className="_product_card">
+    <div className="_sec_product_card">
     	<div>
     		<img src="https://img10.360buyimg.com/mobilecms/s280x280_jfs/t1/118096/10/2132/320426/5e9eb974E7c8f2abc/dc0a26999616d1f8.jpg.webp" alt=""/>
     	</div>
@@ -23,32 +20,26 @@ const ProductCard = (props) => {
                 <span>小辣椒 红辣椒8X Max 6+128GB 深海蓝 3700mAh大电池 6.53英寸水滴屏 全网通4G 双卡双待</span>
             </Tooltip>
     	</div>
-		<div className="seckill-item">
-			<span style={{
-                    fontSize: '15px'
-            }} className="price-origin">
+		<div className="seckill-item_price">
+			<span className="price-miaosha">
     			<i>¥</i>
-                <Tooltip placement="right" title='3969.00'>
+                <Tooltip placement="bottom" title='3969.00'>
                     <span>3969.00</span>
                 </Tooltip>
 			</span>
 
-            {
-                props.addCol ?
-                <span className="item-col">
-                    <span>
-                        月销: 
-                    </span>
-                    <Tooltip placement="right" title='5000'>
-                        <span style={{ fontSize: '15px' }}>5000</span>
+            <span className="price-origin">
+                <del>
+                    <i>¥</i>
+                    <Tooltip placement="bottom" title='14499.00'>
+                        <span>14499.00</span>
                     </Tooltip>
-                </span>
-                :
-                null
-            }
+                </del>
+
+            </span>
 		</div>
     </div>
   )
 }
 
-export default ProductCard;
+export default SecProductCard;

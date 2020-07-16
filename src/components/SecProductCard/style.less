@@ -1,4 +1,4 @@
-._product_card{
+._sec_product_card{
 	width: 100%;
 	height: 100%;
 	text-align: center;
@@ -16,41 +16,39 @@
 		white-space: nowrap;
 		img {
 			width: 100%;
-			margin: 5px 0; 
+			margin: 0px 0; 
 		}
 	}
 
 	.seckill-item_info {
-		margin-top: 5px;
 		color: #000;
 		text-shadow: 0.2px 0.3px 0.1px rgb(0,0,0,0.7);
+		margin-top: 5px;
 	}
 
-	.seckill-item {
+	.seckill-item_price {
 		width: 100%;
 		text-align: center;
 		vertical-align: baseline;
-		
+		padding: 0px 5px;
+		font-size: 15px;
 		span {
-			height: 100%;
-			margin: 0 0.5px;
-			font-family: sans-serif;
+			padding: 0 5px;
+		}
+
+		.price-miaosha {
+			width: 45%;
+			color: #FFF;
+			text-shadow: 0px 1px 0px rgb(255,255,255,0.7);
+			background-color: rgb(255,0,7);
+			border: 1px solid rgb(255,0,7);
 		}
 
 		.price-origin {
-			width: calc(50% - 5px);
-			height: 100%;
-			color: rgb(207,40,42);
-			text-shadow: 0px 1px 0.5px rgb(207,40,42,0.4);
-			padding: 0 10px;
-		}
-
-		.item-col {
-			width: calc(50% - 5px);
-			height: 100%;
-			color: #000;
-			padding: 0;
+			width: 45%;
+			color: rgb(153,153,153);
 			text-shadow: 0px 1px 0.5px rgb(0,0,0,0.7);
+			border: 1px solid rgb(255,0,7);
 		}
 	}
 }

@@ -2,12 +2,15 @@
 * @Author: 王宸
 * @Date:   2019-12-23 17:13:35
 * @Last Modified by:   wangchen
-* @Last Modified time: 2020-07-05 16:42:08
+* @Last Modified time: 2020-07-14 11:35:53
 */
 
 
 import NotFound from '@comp/NotFound';
+
 import Home from '@views/Home';
+import Kind from '@views/Kind';
+import Commodity from '@views/Commodity';
 
 const routes = [
     {
@@ -16,6 +19,19 @@ const routes = [
         exact: false,
         requiresAuth: false, //需要登陆后才能跳转的页面
     },
+
+    {
+        path: '/kind',
+        component: Kind,
+        requiresAuth: false,
+    },
+
+    {
+        path: '/co',
+        component: Commodity,
+        requiresAuth: false,
+    },
+
     {
 		path: '/error',
 		component: NotFound,
