@@ -2,13 +2,13 @@
 * @Author: wangchen
 * @Date:   2020-07-09 11:26:32
 * @Last Modified by:   wangchen
-* @Last Modified time: 2020-07-13 21:18:13
+* @Last Modified time: 2020-07-20 10:08:29
 */
 import React from 'react';
 import './style.less';
 
 import { Carousel } from 'react-responsive-carousel';
-import { Tooltip } from 'antd';
+import { Tooltip, Breadcrumb  } from 'antd';
 
 import { oneToTwoArr } from '@utils/common';
 import { AIcon } from '@utils/icon';
@@ -22,7 +22,7 @@ const ProductModule = (props) => {
   return (
     <div className="_product_module">
 		<div className="_product_module_top_bar">
-			<div style={{
+			{/*<div style={{
 				fontSize: '12px',
 				textShadow: '0.3px 0.3px 0.3px rgb(0,0,0,0.7)',
 			}} className="_product_module_fir_kind">
@@ -32,9 +32,28 @@ const ProductModule = (props) => {
 				fontSize: '15px',
 				textShadow: '0.3px 0.3px 0.3px rgb(0,0,0,0.7)',
 			}} className="_product_module_sec_kinds">
-				{/* 二级类型 */}
+				二级类型
 				 | 驱蚊用品 | 降温风扇 | 遮阳伞 | 夏凉被 |
 			</div>
+			*/}
+			<Breadcrumb>
+				<Breadcrumb.Item><span style={{
+					fontSize: '20px',
+					textShadow: '0.3px 0.3px 0.3px rgb(0,0,0,0.7)',
+				}}>家纺&家饰冰丝凉席</span></Breadcrumb.Item>
+			    <Breadcrumb.Item>
+			      <a href="">驱蚊用品</a>
+			    </Breadcrumb.Item>
+			    <Breadcrumb.Item>
+			      <a href="">降温风扇</a>
+			    </Breadcrumb.Item>
+			    <Breadcrumb.Item>
+			    	<a href="">遮阳伞</a>
+			    </Breadcrumb.Item>
+			    <Breadcrumb.Item>
+			    	<a href="">夏凉被</a>
+			    </Breadcrumb.Item>
+			</Breadcrumb>
 		</div>
 		<div className="_product_module_content">
 			<div className="_product_module_content_poster">

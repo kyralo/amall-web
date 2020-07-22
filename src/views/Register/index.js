@@ -7,9 +7,9 @@
 import React from 'react';
 
 const Resgister = (props) => {
-  return (
-    <div></div>
-  )
+    return (
+        <div></div>
+    )
 }
 
 export default Resgister;

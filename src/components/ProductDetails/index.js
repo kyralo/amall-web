@@ -2,15 +2,17 @@
 * @Author: wangchen
 * @Date:   2020-07-15 20:35:12
 * @Last Modified by:   wangchen
-* @Last Modified time: 2020-07-17 00:22:37
+* @Last Modified time: 2020-07-19 17:01:32
 */
 import React, { useState } from 'react';
 import './style.less';
 
+import { Descriptions } from 'antd';
+
 // 文字
 const Str = (props) => (
 		<div style={{
-			fontSize: '18px',
+			fontSize: '16px',
 			padding: '5px 10px'
 		}}>
 			<p>
@@ -35,70 +37,88 @@ const ArrayStr = (props) => (
 );
 
 // 参数
+// const ArrayObjectStr = (props) => (
+// 	<div style={{
+// 		fontSize: '16px',
+// 		padding: '5px 10px',
+// 		display: 'inline-flex',
+// 		flexFlow: 'row wrap',
+// 	}}>
+// 		{
+// 			props.items.map((item,key) => (
+// 				<div style={{
+// 					border: '1px solid #000',
+// 					padding: '10px 10px'
+// 				}} key={key}>
+// 					<span>{item.name}</span>
+// 					<span> : </span>
+// 					<span>{item.value}</span>
+// 				</div>
+// 			))
+// 		}
+// 	</div>
+// );
+
 const ArrayObjectStr = (props) => (
 	<div style={{
-		fontSize: '18px',
+		fontSize: '16px',
 		padding: '5px 10px',
 		display: 'inline-flex',
 		flexFlow: 'row wrap',
+		textAlign: 'center'
 	}}>
+		<Descriptions layout="vertical" bordered>
 		{
 			props.items.map((item,key) => (
-				<div style={{
-					border: '1px solid #000',
-					padding: '10px 10px'
-				}} key={key}>
-					<span>{item.name}</span>
-					<span> : </span>
-					<span>{item.value}</span>
-				</div>
+				<Descriptions.Item key={key} label={<div style={{
+					margin: '0 auto',
+					textAlign: 'center'
+				}}>{item.name}</div>}>{item.value}</Descriptions.Item>
 			))
 		}
+		</Descriptions>
 	</div>
 );
 
 // 尺码
 const ArrayObjectArray = (props) => (
 	<table style={{
-		fontSize: '18px',
+		width: '90%',
+		fontSize: '16px',
 		padding: '5px 10px',
 		textAlign: 'center'
 	}}>
-		<tr style={{
-			width: '100%',
-			// display: 'inline-flex',
-			// flexFlow: 'row nowrap',
-			// justifyContent: 'space-around'
-		}}>
+		<tbody>
+			<tr style={{
+				width: '100%',
+			}}>
+				{
+					props.items.title.map((item,key) => (
+						<th style={{
+							border: '1px solid #000',
+							padding: '5px 10px'
+						}} key={key}>{item}</th>
+					))
+				}
+			</tr>
+
 			{
-				props.items.title.map((item,key) => (
-					<th style={{
-						border: '1px solid #000',
-						padding: '5px 10px'
-					}} key={key}>{item}</th>
+				props.items.columns.map((item,key) => (
+					<tr key={key} style={{
+						width: '100%',
+					}}>
+						{
+							item.map((item1,key1) => (
+								<td style={{
+									border: '1px solid #000',
+									padding: '5px 10px'
+								}} key={key1}>{item1}</td>
+							))
+						}
+					</tr>
 				))
 			}
-		</tr>
-
-		{
-			props.items.columns.map((item,key) => (
-				<tr key={key} style={{
-					width: '100%',
-					// display: 'inline-flex',
-					// flexFlow: 'row nowrap',
-					// justifyContent: 'space-around'
-				}}>
-					{
-						item.map((item1,key1) => (
-							<td style={{
-								border: '1px solid #000',
-								padding: '5px 10px'
-							}} key={key1}>{item1}</td>
-						))
-					}
-				</tr>
-			))
-		}
+		</tbody>
 	</table>
 );
 
@@ -125,10 +145,8 @@ const oeg = {
 
 const ProductDetails = (props) => {
 	const Handler = () => {
-		console.log(props)
 		if (typeof props.items === 'string') {
-			console.log(props)
-			return (<Str items={props.items}/>);
+			return (<Str {...props}/>);
 		} 
 
 		if (props.items instanceof Array) {
@@ -137,17 +155,17 @@ const ProductDetails = (props) => {
 			}
 
 			if (typeof props.items[0] === 'string') {
-				return (<ArrayStr items={props.items}/>);
+				return (<ArrayStr {...props}/>);
 			}
 
 			if (props.items[0].name) {
-				return (<ArrayObjectStr items={props.items}/>);
+				return (<ArrayObjectStr {...props}/>);
 			}
 		}
 
 		if (props.items instanceof Object) {
 			if (props.items.title) {
-				return (<ArrayObjectArray items={props.items}/>);
+				return (<ArrayObjectArray {...props}/>);
 			}
 		}
 

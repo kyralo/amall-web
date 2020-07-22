@@ -2,127 +2,133 @@
 
 ._header {
 
-	div {
-		display: inline-flex;
-	    padding: 5px 0;
-	}
-	
-	.content {
-	    margin: 0 auto;
-	    width: 100%;
-	    box-shadow: 0 3px 0 rgb(245,246,247);
-	    ._search {
-		    form {
-		        position: relative;
-		        width: 600px;
-		        margin: 0 auto;
-		    }
+  div {
+    display: inline-flex;
+    padding: 5px 0;
+  }
 
-		    input, button {
-		        border: none;
-		        outline: none;
-		    }
+  .content {
+    margin: 0 auto;
+    width: 100%;
+    box-shadow: 0 3px 0 rgb(245, 246, 247);
 
-		    input {
-		        width: 100%;
-		        height: 42px;
-		        padding-left: 10px;
-		    }
+    ._search {
+      form {
+        position: relative;
+        width: 600px;
+        margin: 0 auto;
+      }
 
-		    button {
-		        height: 30px;
-		        width: 27px;
-		        cursor: pointer;
-		        position: absolute;
-		    }
-	    }
+      input, button {
+        border: none;
+        outline: none;
+      }
 
-	    div{
-	    	width: 33.3%;
-	    }
+      input {
+        width: 100%;
+        height: 42px;
+        padding-left: 10px;
+      }
 
-	    ._logo {
-	    	padding: 10px 0;
-		    img {
-		    	height: 30px;
-		    	position: absolute;
-		    	left: 30px;
-		    }
-	    }
-	}
-
-	/*搜索框*/
-	.bar {
-	    input,button {
-	        border-radius: 3px;
-	    }
-
-	    input {
-	        background: #F9F0DA;
-	    }
-
-	    button {
-	        height:30px;
-	        width: 26px;
-	        top: 6px;
-	        right: 7px;
-	        background: #FF5000;
-
-	        &:before {
-	            content: "\f105";
-	            font-family: FontAwesome;
-	            color: #F9F0DA;
-	            font-size: 20px;
-	            font-weight: bold;
-	        }
-	        
-	    }
-	}
-
-    /* 移动端适配 */
-    @media screen and (max-width: 500px) {
-
-		div {
-			display: inline-flex;
-		    padding: 0;
-		}
-
-        .content {
-        	padding: 10px 0;
-        	display: inline-flex;
-        	width: 100%;
-		    ._logo {
-		    	width: 22.2%;
-		    	padding: 5px 0px;
-			    img {
-			    	width: 70px;
-			    	height: 32px;
-			    	position: absolute;
-			    	left: 0px;
-			    }
-		    }
-
-	        ._search {
-	        	width: 60%; 
-		        form {
-		            width: 200px;
-		        } 
-
-		        input {
-		        	padding-left: 15px;
-		        }
-
-			    button {
-			        height: 30px;
-			        width: 27px;
-			        cursor: pointer;
-			        position: absolute;
-			    }
-			}
-
-			._avatar {
-				width: 12.2%;
-			}
-        }
+      button {
+        height: 30px;
+        width: 27px;
+        cursor: pointer;
+        position: absolute;
+      }
     }
+
+    div {
+      width: 33.3%;
+    }
+
+    ._logo {
+      padding: 10px 0;
+
+      img {
+        height: 30px;
+        position: absolute;
+        left: 30px;
+      }
+    }
+  }
+
+  /*搜索框*/
+
+  .bar {
+    input, button {
+      border-radius: 3px;
+    }
+
+    input {
+      background: #F9F0DA;
+    }
+
+    button {
+      height: 30px;
+      width: 26px;
+      top: 6px;
+      right: 7px;
+      background: #FF5000;
+
+      &:before {
+        content: "\f105";
+        font-family: FontAwesome;
+        color: #F9F0DA;
+        font-size: 20px;
+        font-weight: bold;
+      }
+
+    }
+  }
+
+  /* 移动端适配 */
+  @media screen and (max-width: 500px) {
+
+    div {
+      display: inline-flex;
+      padding: 0;
+    }
+
+    .content {
+      padding: 10px 0;
+      display: inline-flex;
+      width: 100%;
+
+      ._logo {
+        width: 22.2%;
+        padding: 5px 0px;
+
+        img {
+          width: 70px;
+          height: 32px;
+          position: absolute;
+          left: 0px;
+        }
+      }
+
+      ._search {
+        width: 60%;
+
+        form {
+          width: 200px;
+        }
+
+        input {
+          padding-left: 15px;
+        }
+
+        button {
+          height: 30px;
+          width: 27px;
+          cursor: pointer;
+          position: absolute;
+        }
+      }
+
+      ._avatar {
+        width: 12.2%;
+      }
+    }
+  }
 }

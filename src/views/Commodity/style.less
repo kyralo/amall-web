@@ -1,304 +1,313 @@
 ._commodity {
-	width: 100%;
-	text-align: center;
-	padding: 35px 4%; 
-	._commodity_detail_primary {
-		width: 90%;
-		display: inline-flex;
-		justify-content: center;
-		._commodity_detail_pre_img {
-			width: 30%;
-		}
-		._commodity_detail_mid {
-			width: 60%;
-			padding: 0 3%;
-			._cdm_title {
-				width: 100%;
-				text-align: left;
-				font-size: 14px;
-				padding: 5px 5px;
-			}
+  width: 100%;
+  text-align: center;
+  padding: 35px 4%;
 
-			._cdm_price {
-				width: 100%;
-				color: #000;
-				font-size: 18px;
-				text-align: left;
-				background-color: rgb(246,246,246,0.1);
-				padding: 5px 5px;
+  ._commodity_detail_primary {
+    width: 90%;
+    display: inline-flex;
+    justify-content: center;
 
-				._cdmp_original {
-					margin: 5px;
-					padding: 0px 5px;
-				}
+    ._commodity_detail_pre_img {
+      width: 30%;
+    }
 
-				._cdmp_current {
-					width: 100%;
-					display: inline-flex;
-					flex-flow: row nowrap; 
-					align-items: baseline;
-					margin: 5px;
-					._cdmp_present {
-						width: 50%;
-						padding: 0px 5px;
-					}
+    ._commodity_detail_mid {
+      width: 60%;
+      padding: 0 3%;
 
-					._cdmp_sale_count {
-						width: 50%;
-						text-align: right;
-						padding: 0px 20px;
-					}
-				}
-			}
+      ._cdm_title {
+        width: 100%;
+        text-align: left;
+        font-size: 14px;
+        padding: 5px 5px;
+      }
 
-			._cdm_option {
-				width: 100%;
-				padding: 5px 5px;
-				._cdmo_item {
-					width: 100%;
-					font-size: 14px;
-					color: #000;
-					text-align: left;
-					padding: 0px 10px;
-					margin: 10px 5px;
-					display: inline-flex;
-					align-items: baseline;
-				}
+      ._cdm_price {
+        width: 100%;
+        color: #000;
+        font-size: 18px;
+        text-align: left;
+        background-color: rgb(246, 246, 246, 0.1);
+        padding: 5px 5px;
 
-				._cdmo_buy_count {
-					width: 100%;
-					font-size: 14px;
-					color: #000;
-					text-align: left;
-					padding: 0px 10px;
-					margin: 10px 5px;
-					display: inline-flex;
-					align-items: baseline;
+        ._cdmp_original {
+          margin: 5px;
+          padding: 0px 5px;
+        }
 
-					div {
-						span {
-							border: 1px solid #000;
-							margin: 0 2px;
-							padding: 5px 10px;
-							input {
-								border: none;
-								text-align: center;
-								&:focus {
-									outline: none;
-								}
-							}
+        ._cdmp_current {
+          width: 100%;
+          display: inline-flex;
+          flex-flow: row nowrap;
+          align-items: baseline;
+          margin: 5px;
 
-							button {
-								border: none;
-								background-color: #FFF;
-								cursor: pointer;
-								&:focus {
-									outline: none;
-								}
-								&:focus-within {
-								 	box-shadow: none;
-								}
-							}
-						}
-					}
-				}
+          ._cdmp_present {
+            width: 50%;
+            padding: 0px 5px;
+          }
 
-				._cdmo_item_extra {
-					display: inline-flex;
-					justify-content: flex-start;
-					align-items: baseline;
-					flex-flow: row wrap; 
-					div {
-						margin: 0px;
-						padding: 2px 5px;
-					}
-				}
-			}
+          ._cdmp_sale_count {
+            width: 50%;
+            text-align: right;
+            padding: 0px 20px;
+          }
+        }
+      }
 
-			._cdm_extra_services {
-				width: 100%;
-				padding: 5px 20px;
-				display: inline-flex;
-				font-size: 14px;
-				color: #000;
-				text-align: left;
-				align-items: baseline;
+      ._cdm_option {
+        width: 100%;
+        padding: 5px 5px;
 
-				._sdmes_items {
-					width: 80%;
-                    color: #000;
-                    display: inline-flex;
-                    flex-flow: row wrap;
-                    align-items: baseline;
-                    justify-content: flex-start;
-                    div {
-                    	margin: 5px 5px;
-                    	span {
-                    		margin: 0 2px;
-                    	}
-                    }
-				}
-			}
+        ._cdmo_item {
+          width: 100%;
+          font-size: 14px;
+          color: #000;
+          text-align: left;
+          padding: 0px 10px;
+          margin: 10px 5px;
+          display: inline-flex;
+          align-items: baseline;
+        }
 
-			._cdm_pay_mode {
-				width: 100%;
-				padding: 5px 20px;
-				display: inline-flex;
-				font-size: 14px;
-				color: #000;
-				text-align: left;
-				align-items: baseline;
-				._cdmpm_items {
-					width: 80%;
-                    color: #000;
-                    display: inline-flex;
-                    flex-flow: row wrap;
-                    align-items: baseline;
-                    justify-content: flex-start;
-                    div {
-                    	margin: 10px 5px;
-                    }
-				}
-			}
+        ._cdmo_buy_count {
+          width: 100%;
+          font-size: 14px;
+          color: #000;
+          text-align: left;
+          padding: 0px 10px;
+          margin: 10px 5px;
+          display: inline-flex;
+          align-items: baseline;
 
-			._cdm_pay {
-				width: 100%;
-				padding: 15px 40px;
-				display: inline-flex;
-				font-size: 20px;
-				color: #000;
-				text-align: left;
-				align-items: baseline;
-				._cdmp_buy {
-					width: 45%;
-					text-align: center;
-					color: #FFF;
-					background-color: rgb(255,0,7);
-					border: 0.5px solid rgb(255,0,7);
-					padding: 5px 0;
-					margin-right: 2%;
-					cursor: pointer;
-				}
+          div {
+            span {
+              border: 1px solid #000;
+              margin: 0 2px;
+              padding: 5px 10px;
 
-				._cdmp_add_to {
-					width: 45%;
-					text-align: center;
-					border: 0.5px solid rgb(0,0,0);
-					padding: 5px 0; 
-					margin-left: 2%;
-					cursor: pointer;
-				}
-			}
-		}
-		._commodity_detail_rec {
-			width: 20%;
-			height: 100%;
-			padding: 0 5px;
-			._cdr_title {
-				font-size: 12px;
-			}
+              input {
+                border: none;
+                text-align: center;
 
-			.carousel.carousel-slider .control-arrow {
-			    top: 0;
-			    color: #fff;
-			    font-size: 26px;
-			    bottom: 0;
-			    margin-top: 0;
-			    padding: 5px;
-			}
-		}
-	}
+                &:focus {
+                  outline: none;
+                }
+              }
 
-	._commodity_detail_content {
-		width: 100%;
-		margin: 40px 0;
-		padding: 0 20px;
-		text-align: center;
+              button {
+                border: none;
+                background-color: #FFF;
+                cursor: pointer;
 
-		// ._cdc_title {
-		// 	width: 90%;
-		// 	display: inline-flex;
-		// 	flex-flow: row nowrap;
+                &:focus {
+                  outline: none;
+                }
 
-		// 	div {
-		// 		padding: 10px 5px;
-		// 	}
-		// }
+                &:focus-within {
+                  box-shadow: none;
+                }
+              }
+            }
+          }
+        }
 
-		._cdc_module {
-			width: 90%;
-			display: inline-flex;
-			flex-flow: row nowrap;
-			justify-content: center;
+        ._cdmo_item_extra {
+          display: inline-flex;
+          justify-content: flex-start;
+          align-items: baseline;
+          flex-flow: row wrap;
 
-			._cdc_catalogue {
-				width: 18%;
-				border: 1px solid rgb(245,245,245);
-			}
+          div {
+            margin: 0px;
+            padding: 2px 5px;
+          }
+        }
+      }
 
-			._cdc_tabbar {
-				width: 60%;
-				margin: 0 2%;
-				border: 1px solid rgb(245,245,245);
-				min-height: 500px;
-			}
+      ._cdm_extra_services {
+        width: 100%;
+        padding: 5px 20px;
+        display: inline-flex;
+        font-size: 14px;
+        color: #000;
+        text-align: left;
+        align-items: baseline;
 
-			._cdc_sidebar {
-				width: 18%;
-				border: 1px solid rgb(245,245,245);
-			}
-		}
+        ._sdmes_items {
+          width: 80%;
+          color: #000;
+          display: inline-flex;
+          flex-flow: row wrap;
+          align-items: baseline;
+          justify-content: flex-start;
+
+          div {
+            margin: 5px 5px;
+
+            span {
+              margin: 0 2px;
+            }
+          }
+        }
+      }
+
+      ._cdm_pay_mode {
+        width: 100%;
+        padding: 5px 20px;
+        display: inline-flex;
+        font-size: 14px;
+        color: #000;
+        text-align: left;
+        align-items: baseline;
+
+        ._cdmpm_items {
+          width: 80%;
+          color: #000;
+          display: inline-flex;
+          flex-flow: row wrap;
+          align-items: baseline;
+          justify-content: flex-start;
+
+          div {
+            margin: 10px 5px;
+          }
+        }
+      }
+
+      ._cdm_pay {
+        width: 100%;
+        padding: 15px 40px;
+        display: inline-flex;
+        font-size: 20px;
+        color: #000;
+        text-align: left;
+        align-items: baseline;
+
+        ._cdmp_buy {
+          width: 45%;
+          text-align: center;
+          color: #FFF;
+          background-color: rgb(255, 0, 7);
+          border: 0.5px solid rgb(255, 0, 7);
+          padding: 5px 0;
+          margin-right: 2%;
+          cursor: pointer;
+        }
+
+        ._cdmp_add_to {
+          width: 45%;
+          text-align: center;
+          background-color: rgb(255, 255, 255);
+          border: 0.5px solid rgb(0, 0, 0);
+          padding: 5px 0;
+          margin-left: 2%;
+          cursor: pointer;
+        }
+      }
+    }
+
+    ._commodity_detail_rec {
+      width: 20%;
+      height: 100%;
+      padding: 0 5px;
+
+      ._cdr_title {
+        font-size: 12px;
+      }
+
+      .carousel.carousel-slider .control-arrow {
+        top: 0;
+        color: #fff;
+        font-size: 26px;
+        bottom: 0;
+        margin-top: 0;
+        padding: 5px;
+      }
+    }
+  }
+
+  ._commodity_detail_content {
+    width: 100%;
+    margin: 40px 0;
+    padding: 0 20px;
+    text-align: center;
+
+    ._cdc_module {
+      width: 90%;
+      display: inline-flex;
+      flex-flow: row nowrap;
+      justify-content: center;
+
+      ._cdc_catalogue {
+        width: 18%;
+        border: 1px solid rgb(245, 245, 245);
+      }
+
+      ._cdc_tabbar {
+        width: 60%;
+        margin: 0 2%;
+        border: 1px solid rgb(245, 245, 245);
+        min-height: 500px;
+      }
+
+      ._cdc_sidebar {
+        width: 18%;
+        border: 1px solid rgb(245, 245, 245);
+      }
+    }
 
 
-	}
+  }
 }
 
 .carousel .slide {
-    min-width: 100%;
-    margin: 0;
-    position: relative;
-    text-align: center;
-    background: #FFF;
+  min-width: 100%;
+  margin: 0;
+  position: relative;
+  text-align: center;
+  background: #FFF;
 }
 
 .carousel .thumbs-wrapper {
-    margin: 20px 0px;
-    overflow: hidden;
+  margin: 20px 0px;
+  overflow: hidden;
 }
 
 .ant-radio-group-solid .ant-radio-button-wrapper-checked:not(.ant-radio-button-wrapper-disabled) {
-    color: #FFF;
-    background: #000;
-    border-color: #000;
+  color: #FFF;
+  background: #000;
+  border-color: #000;
 }
 
 .ant-radio-group-solid .ant-radio-button-wrapper-checked:not(.ant-radio-button-wrapper-disabled):active {
-    color: #000;
-    background: #FFF;
-    border-color: #FFF;
+  color: #000;
+  background: #FFF;
+  border-color: #FFF;
 }
 
 .ant-radio-group-solid .ant-radio-button-wrapper-checked:not(.ant-radio-button-wrapper-disabled):hover {
-    color: #000;
-    background: #FFF;
-    border-color: #FFF;
+  color: #000;
+  background: #FFF;
+  border-color: #FFF;
 }
 
 .ant-radio-button-wrapper:hover {
-    position: relative;
-    color: #FFF;
-    background: #000;
+  position: relative;
+  color: #FFF;
+  background: #000;
 }
 
 .ant-radio-button-wrapper:focus {
-	outline: #000 auto 1px;
+  outline: #000 auto 1px;
 }
 
 .ant-radio-button-wrapper:focus-within {
-	box-shadow: 0 0 0 3px rgba(0, 0, 0, 0.08);
+  box-shadow: 0 0 0 3px rgba(0, 0, 0, 0.08);
 }
 
 
 .ant-radio-button-wrapper-checked:not(.ant-radio-button-wrapper-disabled)::before {
-    background: #000;
+  background: #000;
 }

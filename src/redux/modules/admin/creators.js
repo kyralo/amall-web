@@ -8,11 +8,11 @@
 import * as types from '@redux/types'
 
 export const userDemo = (payload) => ({
-	type: types.ADMIN_DEMO,
-	payload 
+    type: types.ADMIN_DEMO,
+    payload
 });
 
 export const userDemoSaga = (payload) => ({
-	type: types.ADMIN_DEMO_SAGA,
-	payload 
+    type: types.ADMIN_DEMO_SAGA,
+    payload
 });

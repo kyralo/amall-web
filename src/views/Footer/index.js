@@ -9,9 +9,9 @@ import React from 'react';
 import './style.less';
 
 const Footer = (props) => {
-  return (
-    <div className='_footer'>Footer</div>
-  )
+    return (
+        <div className='_footer'>Footer</div>
+    )
 }
 
 export default Footer;
