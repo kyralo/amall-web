@@ -2,7 +2,7 @@
 * @Author: 王宸
 * @Date:   2019-12-23 17:13:35
 * @Last Modified by:   wangchen
-* @Last Modified time: 2020-07-20 09:58:33
+* @Last Modified time: 2020-07-22 17:20:48
 */
 
 
@@ -12,6 +12,7 @@ import Home from '@views/Home';
 import Kind from '@views/Kind';
 import Commodity from '@views/Commodity';
 import User from '@views/User';
+import Cart from '@views/Cart';
 
 const routes = [
     {
@@ -36,6 +37,12 @@ const routes = [
     {
         path: '/user',
         component: User,
+        requiresAuth: false,
+    },
+
+    {
+        path: '/cart',
+        component: Cart,
         requiresAuth: false,
     },
 

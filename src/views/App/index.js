@@ -2,7 +2,7 @@
 * @Author: wangchen
 * @Date:   2020-07-05 20:33:16
 * @Last Modified by:   wangchen
-* @Last Modified time: 2020-07-17 19:05:44
+* @Last Modified time: 2020-07-23 00:05:14
 */
 
 import React, {
@@ -10,14 +10,14 @@ import React, {
     useReducer,
 } from 'react';
 
-import {useSize} from 'ahooks';
-
+import {useSize, UseRequestProvider} from 'ahooks';
 import {BrowserRouter, Switch} from 'react-router-dom';
 
 import Layout from '@views/Layout';
 
 import {routes} from '@router';
 import renderRoutes from '@utils/renderRoutes';
+import axios from '@utils/axios';
 
 import common, * as reducer from '@store/common';
 
@@ -29,15 +29,20 @@ const App = (props) => {
     let authed = !(state.token || state.token === '' || state.token == null);
 
     return (
-        <BrowserRouter>
-            <Layout>
-                <Suspense fallback={<Loading/>}>
-                    <Switch>
-                        {renderRoutes(routes, authed, authPath)}
-                    </Switch>
-                </Suspense>
-            </Layout>
-        </BrowserRouter>
+        <UseRequestProvider value={{
+          refreshOnWindowFocus: true,
+          requestMethod: (param)=> axios(param),
+        }}>
+            <BrowserRouter>
+                <Layout>
+                    <Suspense fallback={<Loading/>}>
+                        <Switch>
+                            {renderRoutes(routes, authed, authPath)}
+                        </Switch>
+                    </Suspense>
+                </Layout>
+            </BrowserRouter>
+        </UseRequestProvider>
     )
 }
 

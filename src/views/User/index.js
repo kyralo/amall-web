@@ -2,7 +2,7 @@
 * @Author: wangchen
 * @Date:   2020-07-20 09:56:59
 * @Last Modified by:   wangchen
-* @Last Modified time: 2020-07-22 13:31:41
+* @Last Modified time: 2020-07-22 17:19:34
 */
 import React, {useState} from 'react';
 import './style.less';
@@ -195,5 +195,6 @@ const UserInfo = (props) => {
         </div>
     );
 };
+
 
 export default User;

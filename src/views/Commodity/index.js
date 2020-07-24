@@ -2,7 +2,7 @@
 * @Author: wangchen
 * @Date:   2020-07-13 20:25:27
 * @Last Modified by:   wangchen
-* @Last Modified time: 2020-07-22 11:02:30
+* @Last Modified time: 2020-07-23 00:41:09
 */
 import React, {useState} from 'react';
 import './style.less';
@@ -758,6 +758,11 @@ const Command = (props) => {
                 header={`${data.length} replies`}
                 itemLayout="horizontal"
                 dataSource={data}
+                loadMore={
+                    <div style={{textAlign: 'center', marginTop: '40px'}}>
+                        ------------- more -------------
+                    </div>
+                }
                 renderItem={item => (
                     <li>
                         <Comment
@@ -772,6 +777,11 @@ const Command = (props) => {
                                 header={`${data.length} replies`}
                                 itemLayout="horizontal"
                                 dataSource={data}
+                                loadMore={
+                                    <div style={{textAlign: 'center'}}>
+                                        ------------- more -------------
+                                    </div>
+                                }
                                 renderItem={item => (
                                     <li>
                                         <Comment
@@ -784,16 +794,10 @@ const Command = (props) => {
                                     </li>
                                 )}
                             />
-                            <div style={{textAlign: 'center'}}>
-                                ------------- more -------------
-                            </div>
                         </Comment>
                     </li>
                 )}
             />
-            <div style={{textAlign: 'center', marginTop: '40px'}}>
-                ------------- more -------------
-            </div>
         </div>
     );
 };
