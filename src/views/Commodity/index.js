@@ -2,7 +2,7 @@
 * @Author: wangchen
 * @Date:   2020-07-13 20:25:27
 * @Last Modified by:   wangchen
-* @Last Modified time: 2020-07-23 00:41:09
+* @Last Modified time: 2020-07-26 07:23:58
 */
 import React, {useState} from 'react';
 import './style.less';
@@ -276,7 +276,7 @@ const Primary = (props) => {
                             <span style={{
                                 backgroudColor: '#FAFAFA',
                                 cursor: 'pointer'
-                            }} onClick={() => setCount((count - 1) >= 0 ? (count - 1) : 0)}>
+                            }} onClick={() => setCount((Number(count) - 1) >= 0 ? (Number(count) - 1) : 0)}>
                                 <button> - </button>
                             </span>
                             <span><input type="text" value={count} style={{
@@ -285,7 +285,7 @@ const Primary = (props) => {
                             <span style={{
                                 backgroudColor: '#FAFAFA',
                                 cursor: 'pointer'
-                            }} onClick={() => setCount((count + 1) <= max ? (count + 1) : max)}>
+                            }} onClick={() => setCount((Number(count) + 1) <= max ? (Number(count) + 1) : max)}>
                                 <button> + </button>
                             </span>
 

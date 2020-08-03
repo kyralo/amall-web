@@ -1,0 +1,76 @@
+._seckill {
+	width: 100%;
+	text-align: center;
+	display: flex;
+	flex-flow: column nowrap;
+	align-items: center;
+	justify-content: center;
+	background-color: #FAFAFA;
+	._sec_ad {
+		width: 80%;
+		margin: 20px 0;
+		padding: 20px 40px;
+		vertical-align: middle;
+		background-color: #FFF;
+	}
+
+	._sec_time_bar {
+		width: 80%;
+		margin: 20px 0;
+	}
+
+	._sec_product {
+		width: 80%;
+		margin-bottom: 20px;
+		padding: 20px 40px;
+		vertical-align: middle;
+		background-color: #FFF;
+	}
+}
+
+._product_card{
+	width: 100%;
+	text-align: center;
+	display: flex;
+	flex-flow: column wrap;
+	justify-content: center;
+	background-color: #FFF;
+	padding: 5px 10px;
+
+	div {
+		padding: 0;
+		overflow: hidden;
+		text-overflow: ellipsis;
+		white-space: nowrap;
+		img {
+			padding: 0 30px;
+			width: 100%;
+			margin: 5px 0; 
+		}
+	}
+
+	.seckill-item_info {
+		margin-top: 5px;
+		padding: 5px 0;
+		color: #000;
+		text-shadow: 0.2px 0.3px 0.1px rgb(0,0,0,0.7);
+	}
+
+	.seckill-item {
+		width: 100%;
+		padding: 5px 0;
+		text-align: center;
+		display: inline-flex;
+		flex-flow: row nowrap;
+		justify-content: baseline;
+		
+		span {
+			font-family: sans-serif;
+		}
+
+		.price-origin {
+			color: rgb(207,40,42);
+			text-shadow: 0px 1px 0.5px rgb(207,40,42,0.4);
+		}
+	}
+}

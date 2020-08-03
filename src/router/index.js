@@ -2,7 +2,7 @@
 * @Author: 王宸
 * @Date:   2019-12-23 17:13:35
 * @Last Modified by:   wangchen
-* @Last Modified time: 2020-07-22 17:20:48
+* @Last Modified time: 2020-08-03 17:45:57
 */
 
 
@@ -13,6 +13,10 @@ import Kind from '@views/Kind';
 import Commodity from '@views/Commodity';
 import User from '@views/User';
 import Cart from '@views/Cart';
+import Seckill from '@views/Seckill';
+import Order from '@views/Order';
+import Pay from '@views/Pay';
+import Merchant from '@views/Merchant';
 
 const routes = [
     {
@@ -43,6 +47,30 @@ const routes = [
     {
         path: '/cart',
         component: Cart,
+        requiresAuth: false,
+    },
+
+    {
+        path: '/seckill',
+        component: Seckill,
+        requiresAuth: false,
+    },
+
+    {
+        path: '/order',
+        component: Order,
+        requiresAuth: false,
+    },  
+
+    {
+        path: '/pay',
+        component: Pay,
+        requiresAuth: false,
+    },  
+
+    {
+        path: '/merchant',
+        component: Merchant,
         requiresAuth: false,
     },
 

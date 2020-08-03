@@ -1,8 +1,8 @@
 /*
 * @Author: wangchen
 * @Date:   2020-07-12 16:01:09
-* @Last Modified by:   wangchen
-* @Last Modified time: 2020-07-13 13:20:39
+* @Last Modified by:   kyralo
+* @Last Modified time: 2020-07-31 00:25:25
 */
 import React from 'react';
 import './style.less';
@@ -18,14 +18,18 @@ const Kind = (props) => {
             <div className='_kind_top_bar'>
                 <KindBar/>
             </div>
-            <div className='_kind_items'>
-                {
-                    arr2.map((item, key) => (
-                        <div key={key} className="_kind_item">
-                            <ProductCard addCol='true'/>
-                        </div>
-                    ))
-                }
+            <div style={{
+                marginTop: '10px'
+            }}>
+                <div className='_kind_items'>
+                    {
+                        arr2.map((item, key) => (
+                            <div key={key} className="_kind_item">
+                                <ProductCard addCol='true'/>
+                            </div>
+                        ))
+                    }
+                </div>
             </div>
         </div>
     )

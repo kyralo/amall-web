@@ -2,6 +2,96 @@
 	width: 100%;
 	text-align: center;
 	padding: 40px 0;
+	color: #000;
+	background-color: #F9F9F9;
+
+	._cart_menu {
+    	width: 80%;
+    	height: 60px;
+    	margin: 0 auto;
+    	text-align: center;
+  		background-color: #FFF;
+  		padding: 0px 20px;
+  		display: inline-flex;
+		flex-flow: row nowrap;
+		align-items: center;
+		font-size: 14px;
+	}
+
+	._cart_end {
+		width: 80%;
+    	height: 60px;
+    	margin: 0 auto;
+    	text-align: center;
+  		background-color: #FFF;
+  		padding: 0px 20px;
+  		display: inline-flex;
+		flex-flow: row nowrap;
+		align-items: center;
+		font-size: 14px;
+
+		._cart_end_settle {
+			width: 10%;
+			height: 100%;
+			padding: 10px 10px;
+			button {
+				width: 100%;
+				height: 100%;
+				border: none;
+				background-color: rgb(255,0,2);
+				color: #FFF;
+				cursor: pointer;
+				padding: 10px 10px;
+
+				&:focus {
+				  outline: none;
+				}
+
+				&:focus-within {
+				  box-shadow: none;
+				}
+			}
+		}
+	}
+}
+
+._cart_item {
+	width: 100%;
+	display: inline-flex;
+	flex-flow: row nowrap;
+	align-items: flex-start;
+	font-size: 14px;
+	._cart_item_count {
+		width: 20%;
+		span {
+		  border: 1px solid #000;
+		  margin: 0 2px;
+		  padding: 5px 10px;
+
+		  input {
+		    border: none;
+		    text-align: center;
+
+		    &:focus {
+		      outline: none;
+		    }
+		  }
+
+		  button {
+		    border: none;
+		    cursor: pointer;
+		    background-color: inherit;
+
+		    &:focus {
+		      outline: none;
+		    }
+
+		    &:focus-within {
+		      box-shadow: none;
+		    }
+		  }
+		}
+	}
 }
 
 .shoppingCartWarp{
