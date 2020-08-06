@@ -1,8 +1,8 @@
 /*
 * @Author: wangchen
 * @Date:   2020-07-13 20:25:27
-* @Last Modified by:   wangchen
-* @Last Modified time: 2020-07-26 07:23:58
+* @Last Modified by:   kyralo
+* @Last Modified time: 2020-08-04 22:41:14
 */
 import React, {useState} from 'react';
 import './style.less';
@@ -279,7 +279,7 @@ const Primary = (props) => {
                             }} onClick={() => setCount((Number(count) - 1) >= 0 ? (Number(count) - 1) : 0)}>
                                 <button> - </button>
                             </span>
-                            <span><input type="text" value={count} style={{
+                            <span><input type="text" value={Number(count)} style={{
                                 maxWidth: '40px'
                             }} onChange={countChange}/></span>
                             <span style={{

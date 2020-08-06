@@ -1,16 +1,14 @@
 /*
 * @Author: wangchen
 * @Date:   2020-07-04 08:39:43
-* @Last Modified by:   wangchen
-* @Last Modified time: 2020-07-06 22:35:52
+* @Last Modified by:   kyralo
+* @Last Modified time: 2020-08-06 20:28:10
 */
 import React from 'react';
 
 import './style.less';
 
-import {
-    useSize,
-} from 'ahooks';
+import {useSize} from 'ahooks';
 
 import LogoPcIcon from './amall-pc.png';
 import LogoMobileIcon from './amall-mobile.png';

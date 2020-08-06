@@ -1,8 +1,8 @@
 /*
 * @Author: wangchen
 * @Date:   2020-07-09 11:26:32
-* @Last Modified by:   wangchen
-* @Last Modified time: 2020-07-20 10:08:29
+* @Last Modified by:   kyralo
+* @Last Modified time: 2020-08-07 01:13:58
 */
 import React from 'react';
 import './style.less';
@@ -136,6 +136,37 @@ const ProductModule = (props) => {
 				</Carousel>
 			</div>
 			<div className="_product_module_content_rec">
+				<div style={{
+					width: '100%',
+					display: 'inline-flex',
+					flexFlow: 'row nowrap',
+					alignItems: 'baseline',
+				}}>
+					<div style={{
+						width: '65%',
+						fontSize: '18px',
+						paddingTop: '20px',
+						paddingRight: '10px',
+					}}>
+						<span>热销商品推荐</span>
+					</div>
+					<div style={{
+						width: '35%',
+						textAlign: 'right',
+						padding: '20px 5px 0px',
+						color: '#C8C8C8'
+					}}>
+						<AIcon type="icon-amall-shuaxin" style={{
+							fontSize: '15px',
+							margin: '0 5px',
+							color: '#C8C8C8'
+						}}/>
+
+						<span style={{
+							fontSize: '13px',
+						}}>换一批</span>
+					</div>
+				</div>
 				{
 					arr1.map((item,key) => (
 						<div key={key} className="_product_module_content_rec_item">

@@ -1,17 +1,15 @@
 /*
 * @Author: wangchen
 * @Date:   2020-06-24 13:53:10
-* @Last Modified by:   wangchen
-* @Last Modified time: 2020-07-17 16:24:46
+* @Last Modified by:   kyralo
+* @Last Modified time: 2020-08-06 23:04:17
 */
 import React, {useReducer, useState, useLayoutEffect} from 'react';
 
-import {
-    useScroll,
-    useSize,
-} from 'ahooks';
+import {useScroll,useSize} from 'ahooks';
 
-import {Avatar, Carousel} from 'antd';
+import {Avatar,Carousel,Badge,Divider } from 'antd';
+import {UserOutlined} from '@ant-design/icons';
 
 import user, * as userReducer from '@store/user';
 import {userDemo} from '@store/user/creators';
@@ -34,11 +32,16 @@ import SecProductCard from '@comp/SecProductCard';
 import ProductCard from '@comp/ProductCard';
 import SeckillFacade from '@comp/SeckillFacade';
 import ProductModule from '@comp/ProductModule';
+import Typewriter from '@comp/Typewriter';
 
 const arr = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11];
 const arrSec = [0, 1, 2, 3, 4, 5];
 const arr1 = [0, 1, 2];
 const arr2 = [0, 1, 2, 0, 1, 2, 0, 1, 2, 0, 1, 2, 0, 1, 2, 0, 1, 2, 0, 1, 2, 0, 1, 2, 0, 1, 2, 0, 1, 2, 0, 1, 2,];
+
+const isLogin = false;
+
+const defaultText = `  韦小宝对九难师太说:"师父,前面有个商店哦!" \n 九难抬头一看,前面果然是一个叫 "有个商店" 的商店.`;
 
 const PCHome = (props) => (
     <div className="fs_pc">
@@ -75,7 +78,75 @@ const PCHome = (props) => (
                 </div>
             </div>
             <div className="fs_pc_base_info">
-                暂无
+                <div style={{
+                    padding: '20px 20px'
+                }}>
+                    <div>
+                        <div><Avatar size={64} icon={<UserOutlined/>}/></div>
+                        <div style={{margin: '10px 0'}}>
+                            {
+                                isLogin ? 
+                                <span style={{fontSize: '18px',color: '#000'}}>你好 kyralo!</span>
+                                :
+                                <span style={{fontSize: '16px'}}>未登录</span>
+                            }
+                        </div>
+                    </div>
+                    <Divider />
+                    
+                    {
+                        isLogin ? 
+                        <div style={{
+                            width: '100%',
+                            display: 'inline-flex',
+                            flexFlow: 'row nowrap'
+                        }}>
+                            <div style={{
+                                width: '33.3%',
+                                fontSize: '15px'
+                            }}>
+                                <div><span>购物车</span></div>
+                                <div style={{
+                                    margin: '10px 0',
+                                    fontSize: '20px',
+                                    color: 'rgb(255,80,0,0.5)'
+                                }}><span>80</span></div>
+                            </div>
+                            <div style={{
+                                width: '33.3%',
+                                fontSize: '15px'
+                            }}>
+                                <div><span>收藏夹</span></div>
+                                <div style={{
+                                    margin: '10px 0',
+                                    fontSize: '20px',
+                                    color: 'rgb(255,80,0,0.5)'
+                                }}><span>80</span></div></div>
+                            <div style={{
+                                width: '33.3%',
+                                fontSize: '15px'
+                            }}>
+                                <div><span>待付订单</span></div>
+                                <div style={{
+                                    margin: '10px 0',
+                                    fontSize: '20px',
+                                    color: 'rgb(255,80,0,0.5)'
+                                }}><span>80</span></div>
+                            </div>
+                        </div>                        
+                        :
+                        <div style={{
+                            width: '90%',
+                            margin: '0 auto',
+                            fontSize: '14px',
+                            padding: '10px 0'
+                        }}>
+                            <Typewriter text={defaultText} />
+                        </div>
+                    }
+
+
+                </div>
             </div>
         </div>
 
