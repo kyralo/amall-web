@@ -1,10 +1,10 @@
 /*
 * @Author: wangchen
 * @Date:   2020-07-20 09:56:59
-* @Last Modified by:   wangchen
-* @Last Modified time: 2020-07-27 00:16:05
+* @Last Modified by:   kyralo
+* @Last Modified time: 2020-08-15 02:24:40
 */
-import React, {useState} from 'react';
+import React, {useState,Suspense} from 'react';
 import './style.less';
 
 import {
@@ -15,19 +15,22 @@ import {
     Radio,
     List,
     Tooltip,
-    Drawer
+    Drawer,
+    Divider
 } from 'antd';
+
+import {Route,Link,Redirect} from "react-router-dom";
 
 import ImgCrop from 'antd-img-crop';
 import {AIcon} from '@utils/icon';
 
+import Loading from '@comp/Loading'
 import UserAddress from '@views/UserAddress';
 
 const {SubMenu} = Menu;
 const {Content, Footer, Sider} = Layout;
 
 const User = (props) => {
-
     return (
         <div className="_user">
             <Content style={{padding: '0 50px', width: "80%",margin: "0 auto",}}>
@@ -41,15 +44,19 @@ const User = (props) => {
                         >
                             <Menu.Item key="sub1" icon={<AIcon style={{fontSize: '18px'}}
                                                                type="icon-amall-iconinterfaceleft_menuuserinfo"/>}>
-                                <span>基本信息</span>
+                                <Link to={`${props.route.path}/info`}><span>基本信息</span></Link>
                             </Menu.Item>
                             <Menu.Item key="sub2" icon={<AIcon style={{fontSize: '18px'}} type="icon-amall-gouwuche"/>}>
-                                <span>购物车</span>
+                                <Link to={`/cart`}><span>购物车</span></Link>
                             </Menu.Item>
                             <SubMenu key="sub3" icon={<AIcon style={{fontSize: '18px'}} type="icon-amall-dingdan"/>}
                                      title={<span>订单管理</span>}>
-                                <Menu.Item key="sub3-1"><span>待付款</span></Menu.Item>
-                                <Menu.Item key="sub3-2"><span>交易历史</span></Menu.Item>
+                                <Menu.Item key="sub3-1">
+                                    <Link to={`${props.route.path}/order/notpay`}><span>待付款</span></Link>
+                                </Menu.Item>
+                                <Menu.Item key="sub3-2">
+                                    <Link to={`${props.route.path}/order/pay`}><span>已付款</span></Link>
+                                </Menu.Item>
                             </SubMenu>
                             <SubMenu key="sub4" icon={<AIcon style={{fontSize: '18px'}} type="icon-amall-collection"/>}
                                      title={<span>我的收藏</span>}>
@@ -58,7 +65,9 @@ const User = (props) => {
 
                             <SubMenu key="sub5" icon={<AIcon style={{fontSize: '18px'}} type="icon-amall-didian"/>}
                                      title={<span>地址管理</span>}>
-                                <Menu.Item key="sub5-1"><span>配送地址</span></Menu.Item>
+                                <Menu.Item key="sub5-1">
+                                    <Link to={`${props.route.path}/address`}><span>配送地址</span></Link>
+                                </Menu.Item>
                             </SubMenu>
                             <SubMenu key="sub6" icon={<AIcon style={{fontSize: '18px'}} type="icon-amall-anquan"/>}
                                      title={<span>安全设置</span>}>
@@ -75,7 +84,19 @@ const User = (props) => {
                         <Content style={{padding: '10px 0px', height: '100%'}}>
                             <div className="_user_content"
                                  style={{minHeight: '30vh', backgroundColor: '#FFF'}}>
-                                <Address/>
+
+                                <Suspense fallback={<Loading/>}>
+                                    <Route exact path={`${props.route.path}/`}>
+                                        <Redirect to={`${props.route.path}/info`}/>
+                                    </Route>
+                                    <Route path={`${props.route.path}/info`} exact component={UserInfo} />
+                                    <Route path={`${props.route.path}/address`} exact component={Address} />
+                                    <Route path={`${props.route.path}/order/notpay`} exact component={UserNotPayOrder} />
+                                    <Route path={`${props.route.path}/order/pay`} exact component={UserPayOrder} />
+
+                                    <Redirect to={`${props.route.path}/info`}/>
+                                </Suspense>
+
                             </div>
                         </Content>
                     </Layout>
@@ -84,6 +105,8 @@ const User = (props) => {
         </div>
     )
 }
+
+// UserInfo
 
 const UserInfo = (props) => {
     const [fileList, setFileList] = useState([
@@ -210,6 +233,8 @@ const UserInfo = (props) => {
     );
 };
 
+// Address
+
 const data = [0,1,2,3,4];
 const Address = (props) => {
 
@@ -217,6 +242,15 @@ const Address = (props) => {
 
     return (
         <div>
+            <div style={{
+                textAlign: 'left', 
+                fontSize: '16px', 
+                padding: '0 40px'
+            }}>
+                <h1>用户地址</h1>
+                <Divider/>
+            </div>
+
             <div style={{
                 width: '100%'
             }}>
@@ -313,13 +347,192 @@ const Address = (props) => {
             </Drawer>
         </div>
     );
+};
+
+// Order
+
+const items = [
+    {
+        id: '10002',
+        imgUrl: 'https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png',
+        title: '西部数据（WD）1TB SSD固态硬盘 M.2接口(SATA总线) Blue系列-3D进阶高速读写版｜五年质保',
+        price: '88.8',
+        num: '1',
+        max: '7',
+        check: false,
+        isDisabled: false,
+        attr: [
+            {
+                name: '颜色',
+                value: '黑黄低帮'
+            },
+            {
+                name: '尺码',
+                value: '41'
+            }
+        ],
+    },
+];
+const UserOrderItem = (props) => {
+    return (
+        <div className='_order_item'>
+            <div style={{
+                width: '12.5%',
+            }}>
+                <img style={{width: '100%'}} src={props.item.imgUrl} alt=""/>
+            </div>
+            <div style={{
+                width: '50%',
+                textAlign: 'left',
+                paddingLeft: '20px',
+            }}>
+                <span>{props.item.title}</span>
+            </div>
+
+            <div className="_order_item_count">
+                <span>
+                    <span>x</span>
+                    {
+                        props.item.isDisabled ?
+                        0
+                        :
+                        props.item.num
+                    }
+                </span>
+            </div>
+            <div style={{
+                width: '12.5%',
+                fontSize: '18px',
+                padding: '0px 10px',
+                color: 'rgb(255,0,4)',
+            }}>
+                <span><span>¥</span> {
+                    props.item.isDisabled ?
+                    props.item.price
+                    :
+                    props.item.price*props.item.num
+                }</span>
+            </div>
+
+        </div>
+    );
+};
+const UserOrder = (props) => {
+
+    return (
+        <div style={{width: '100%'}}>
+            <div style={{
+                width: '100%',
+                textAlign: 'left', 
+                fontSize: '16px', 
+                padding: '0 40px'
+            }}>
+                <h1>用户订单</h1>
+                <Divider/>
+            </div>
+            <div style={{
+                width: 'calc(100% - 80px)',
+                margin: '40px',
+                border: '1px solid #E8E8E8'
+            }}>
+                <div style={{
+                    width: '100%',
+                    padding: '5px 20px',
+                    textAlign: 'center',
+                    display: 'inline-flex',
+                    flexFlow: 'row nowrap',
+                    fontSize: '13px',
+                    alignItems: 'baseline',
+                    color: '#000',
+                    backgroundColor: '#F5F5F5'
+                }}>
+                    <div style={{
+                        marginRight: '10px'
+                    }}> 
+                        <span style={{fontSize: '14px'}}>2020-08-02 23:44:04</span>    
+                    </div>
+                    <div>
+                        订单号： <span style={{fontSize: '14px'}}>123965404753</span>
+                     </div>
+                </div>
+
+                <div style={{
+                    width: '100%',
+                    display: 'inline-flex',
+                    flexFlow: 'row nowrap',
+                    alignItems: "center",
+                }}>
+                    <div style={{
+                        width: '80%'
+                    }}>
+                        {
+                            items.map((item,key) => (
+                                <div key={key} style={{
+                                    margin: '20px 0',
+                                    width: '100%',
+                                }} >
+
+                                    <div style={{
+                                        width: '100%',
+                                        padding: '0px 10px',
+                                        textAlign: 'center',
+                                    }}>
+                                        <UserOrderItem key={key} item={item}/>
+                                    </div>
+
+                                </div>
+                            ))
+                        } 
+                    </div>
+
+
+                    <div style={{
+                        width: '20%',
+                        padding: '0px 10px',
+                        fontSize: '15px',
+                        textAlign: 'center',
+                    }}>
+                        {
+                            props.isPay ?
+                            <span>已付款</span>
+                            :
+                            <span>
+                                <button className="_pay_button">立即购买</button>
+                            </span>
+                        }
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+    );    
+};
+
+// 待付款
+const UserNotPayOrder = (props) => {
+    return (
+        <div style={{width: '100%'}}>
+            <UserOrder isPay={false}/>
+        </div>
+    );
+}
+
+// 已付款
+const UserPayOrder = (props) => {
+    return (
+        <div style={{width: '100%'}}>
+            <UserOrder isPay={true}/>
+        </div>
+    );
 }
 
 const Password = (props) => {
-
     return (
-        <div></div>
+        <div>
+            
+        </div>
     );
-}
+};
 
 export default User;

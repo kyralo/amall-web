@@ -2,7 +2,7 @@
 * @Author: wangchen
 * @Date:   2020-07-22 17:18:45
 * @Last Modified by:   kyralo
-* @Last Modified time: 2020-08-02 15:28:30
+* @Last Modified time: 2020-08-12 18:39:17
 */
 import React, {useReducer,useState} from 'react';
 import './style.less';
@@ -277,105 +277,5 @@ const CartItem = (props) => {
 		</div>
 	);
 };
-
-
-// const MobileCart = (props) => {
-//   const [cartState, cartDispatch] = useReducer(cart, cartReducer.defaultState);
-
-//   // 选择商品
-//   const checkCartGoods = (goodsId,index) =>{
-//     cartDispatch(checkGoods(goodsId));
-//   }
-//   // 切换商品数量
-//   const changeCartGoodNum = (status,goodsId,index,e) =>{
-//     // 阻止事件冒泡、浏览器默认行为
-//     e.preventDefault();
-//     e.stopPropagation();
-
-//     cartDispatch(changeGoodsNum({
-//       status:status,
-//       goodsId:goodsId
-//     }));
-//   }
-//   // 全选
-//   const checkAllCartGoods = () => {
-//   	cartDispatch(checkAllGoods(cartState.list.filter(item => item.check).length == cartState.list.length));
-//   }
-//   // 结算
-//   const submit = () => {
-//     let submitList = []
-//     let checkGoodsList = cartState.list.filter(item => item.check)
-//     checkGoodsList.map((item,index) => {
-//       let obj = {
-//         goodsId:item.goodsId,
-//         goodsNum:item.goodsNum
-//       }
-//       submitList.push(obj)
-//     })
-//     console.log(submitList)
-//   }
-//     return (
-//       <div className='shoppingCartWarp'>
-//         <div className='shoppingCartWarp_header'>
-//           <div>购物车</div>
-//         </div>
-//         <div className='shoppingCartWarp_content'>
-//           {
-//             cartState.list.map((item,index) => (
-//               <div className='shoppingCartWarp_content_list' key={index} onClick={() => checkCartGoods(item.goodsId,index)}>
-//                 <div className='shoppingCartWarp_content_check'>
-//                   {
-//                     item.check ?                 
-//                     <AIcon type='icon-amall-open_icon_successx' /> 
-// 	                : 
-// 	                <AIcon type='icon-amall-uncheck' />
-//                   }
-//                 </div>
-//                 <div className='shoppingCartWarp_content_list_imgWarp'>
-//                   <img src={item.goodsSrc} alt=""/>
-//                 </div>
-//                 <div className='shoppingCartWarp_content_list_info'>
-//                   <div className='shoppingCartWarp_content_list_title'>{item.goodsTitle}</div>
-//                   <div className='shoppingCartWarp_content_list_subtitle'>{item.goodsSubtitle}</div>
-//                   <div className='shoppingCartWarp_content_list_action'>
-//                     <div className='shoppingCartWarp_content_list_price'>￥{item.goodsPrice}</div>
-//                     <div className='shoppingCartWarp_content_list_actionNum'>
-//                       {
-//                         // 商品数量为0 隐藏取消和数量
-//                         item.goodsNum > 0 ?
-//                           <div style={{display:'flex',justifyContent:'center',alignItems:'center'}}>
-//                             <div className='shoppingCartWarp_content_list_actionNumChangeButton' onClick={(e) => changeCartGoodNum('reduce',item.goodsId,index,e)}>-</div>
-//                             <div className='shoppingCartWarp_content_list_actionNumInfo'>{item.goodsNum}</div>
-//                           </div>
-//                           : ''
-//                       }
-//                       <div className='shoppingCartWarp_content_list_actionNumChangeButton' onClick={(e) => changeCartGoodNum('add',item.goodsId,index,e)}>+</div>
-//                     </div>
-//                   </div>
-//                 </div>
-//               </div>
-//             ))
-//           }
-//         </div>
-//         <div className='shoppingCartWarp_footer'>
-//           <div className='shoppingCartWarp_footer_action'>
-//             <div className='shoppingCartWarp_footer_checkAll' onClick={() => checkAllCartGoods()}>
-//               {
-//                 cartState.list.filter(item => item.check).length == cartState.list.length ? 
-//                 <AIcon type='icon-amall-open_icon_successx' /> 
-//                 : 
-//                 <AIcon type='icon-amall-uncheck' />
-//               }
-//               全选
-//             </div>
-//             <div className='shoppingCartWarp_footer_mount'>
-//               总计&nbsp;:&nbsp;<span>{cartState.list.reduce((total,item) => total + (item.check ? parseFloat(item.goodsPrice*item.goodsNum) : 0),0).toFixed(2)}</span>
-//             </div>
-//           </div>
-//           <div className='shoppingCartWarp_footer_submit' onClick={() => submit()}>结算</div>
-//         </div>
-//       </div>
-//     )
-// }
 
 export default Cart;

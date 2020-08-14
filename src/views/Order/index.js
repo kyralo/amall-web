@@ -2,7 +2,7 @@
 * @Author: wangchen
 * @Date:   2020-07-29 00:23:42
 * @Last Modified by:   kyralo
-* @Last Modified time: 2020-08-03 00:34:14
+* @Last Modified time: 2020-08-15 01:16:36
 */
 import React from 'react';
 import './style.less';
@@ -245,7 +245,6 @@ const Order = (props) => {
 								}} >
 									<CartItem key={key} item={item}/>
 								</div>
-
 							))
 						}
 					</div>

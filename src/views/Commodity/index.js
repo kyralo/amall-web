@@ -2,7 +2,7 @@
 * @Author: wangchen
 * @Date:   2020-07-13 20:25:27
 * @Last Modified by:   kyralo
-* @Last Modified time: 2020-08-04 22:41:14
+* @Last Modified time: 2020-08-14 00:38:40
 */
 import React, {useState} from 'react';
 import './style.less';
@@ -77,12 +77,26 @@ const arr = [
     },
     {
         name: '套餐',
-        values: [
-            '套餐一',
-            '套餐二',
-            '套餐三',
-            '套餐四'
+        isCombo: true,
+        values: [            
+            {
+                title: '买一送二',
+                value: '套餐一'
+            },
+            {
+                title: '买二送三',
+                value: '套餐二'
+            },
+            {
+                title: '买三送四',
+                value: '套餐三'
+            },            
+            {
+                title: '买四送五',
+                value: '套餐四'
+            },
         ]
+
     }
 ];
 
@@ -174,7 +188,9 @@ const arrRec = [0, 1, 2, 3, 4, 5, 6];
 const Primary = (props) => {
     const max = 5000;
     const [count, setCount] = useState(0);
-    const [selectedItem, setSelectedItem] = useState(0);
+    const [selectedItem, setSelectedItem] = useState(null);
+    const [sizeSelectedItem, setSizeSelectedItem] = useState(null);
+    const [comboSelectedItem, setComboSelectedItem] = useState(null);
 
     const countChange = e => {
         let value = e.target.value;
@@ -223,7 +239,7 @@ const Primary = (props) => {
                             }}><i>¥</i> 988.00</span>
                         </div>
                         <div className='_cdmp_sale_count'>
-                            <span>累计销量: </span>
+                            <span>月销量: </span>
                             <span>5000</span>
                         </div>
                     </div>
@@ -237,29 +253,69 @@ const Primary = (props) => {
                                     width: '20%'
                                 }}>{item.name} :
                                 </div>
-
-                                <Radio.Group className='_cdmo_item_extra' style={{
+                                <div style={{
                                     width: '80%',
-                                    color: '#000'
-                                }} buttonStyle="solid" optionType="button">
+                                }}>
                                     {
                                         item.isColor ?
                                             item.values.map((item1, key1) => (
-                                                <div key={key1} onClick={() => setSelectedItem(key1)}>
-                                                    <Radio.Button type="text" style={{
+                                                <Radio.Group key={key1} className='_cdmo_item_extra' style={{
+                                                    color: '#000',
+                                                }} buttonStyle="solid" optionType="button" value={selectedItem}>
+                                                    <div onClick={() => {
+                                                        setComboSelectedItem(null),
+                                                        setSelectedItem(key1),
+                                                        sizeSelectedItem == null ? setSizeSelectedItem(0) : null
+                                                    }}>
+                                                        <Radio.Button type="text" style={{
+                                                            border: '1px solid #000'
+                                                        }} value={key1}>
+                                                            {item1}
+                                                        </Radio.Button>
+                                                    </div>
+                                                </Radio.Group>
+                                            ))
+                                            :
+                                            !item.isCombo ? 
+                                            item.values.map((item1, key1) => (
+                                                <Radio.Group key={key1} className='_cdmo_item_extra' style={{
+                                                    color: '#000'
+                                                }} buttonStyle="solid" optionType="button" value={sizeSelectedItem}>
+                                                    <div onClick={() => {
+                                                        setComboSelectedItem(null),
+                                                        setSizeSelectedItem(key1),
+                                                        selectedItem == null ? setSelectedItem(0) : null
+                                                    }}><Radio.Button type="text" style={{
                                                         border: '1px solid #000'
-                                                    }} value={item1}>{item1}
-                                                    </Radio.Button>
-                                                </div>
+                                                    }} value={key1}>
+                                                        {item1}
+                                                    </Radio.Button></div>
+                                                </Radio.Group>
                                             ))
                                             :
                                             item.values.map((item1, key1) => (
-                                                <div key={key1}><Radio.Button type="text" style={{
-                                                    border: '1px solid #000'
-                                                }} value={item1}>{item1}</Radio.Button></div>
+                                                <Radio.Group key={key1} className='_cdmo_item_extra' style={{
+                                                    color: '#000'
+                                                }} buttonStyle="solid" optionType="button" value={comboSelectedItem}>
+                                                    <div onClick={() => {
+                                                        setSelectedItem(null),
+                                                        setSizeSelectedItem(null),
+                                                        setComboSelectedItem(key1)
+                                                    }}>
+                                                        <Tooltip placement="topLeft" title={item1.title}>
+                                                            <Radio.Button type="text" style={{
+                                                                border: '1px solid #000'
+                                                            }} value={key1}>
+                                                                {item1.value}
+                                                            </Radio.Button>
+                                                        </Tooltip>
+                                                    </div>
+                                                </Radio.Group>
                                             ))
+
                                     }
-                                </Radio.Group>
+                                </div>
+
                             </div>
                         ))
                     }

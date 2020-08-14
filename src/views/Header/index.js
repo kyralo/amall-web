@@ -2,7 +2,7 @@
 * @Author: wangchen
 * @Date:   2020-07-04 08:39:43
 * @Last Modified by:   kyralo
-* @Last Modified time: 2020-08-06 20:28:10
+* @Last Modified time: 2020-08-07 01:18:21
 */
 import React from 'react';
 
@@ -43,7 +43,8 @@ const Header = (props) => {
                 <div className="_avatar">
                     <Avatar style={{
                         position: 'absolute',
-                        right: '15px'
+                        right: '15px',
+                        cursor: "pointer",
                     }} size={44} icon={<UserOutlined/>}/>
                 </div>
             </div>

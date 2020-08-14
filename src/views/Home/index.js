@@ -2,7 +2,7 @@
 * @Author: wangchen
 * @Date:   2020-06-24 13:53:10
 * @Last Modified by:   kyralo
-* @Last Modified time: 2020-08-06 23:04:17
+* @Last Modified time: 2020-08-07 01:18:19
 */
 import React, {useReducer, useState, useLayoutEffect} from 'react';
 
@@ -82,7 +82,9 @@ const PCHome = (props) => (
                     padding: '20px 20px'
                 }}>
                     <div>
-                        <div><Avatar size={64} icon={<UserOutlined/>}/></div>
+                        <div><Avatar style={{
+                            cursor: "pointer",
+                        }} size={64} icon={<UserOutlined/>}/></div>
                         <div style={{margin: '10px 0'}}>
                             {
                                 isLogin ? 

@@ -1,8 +1,8 @@
 /*
 * @Author: wangchen
 * @Date:   2020-07-26 19:36:43
-* @Last Modified by:   wangchen
-* @Last Modified time: 2020-07-26 23:37:59
+* @Last Modified by:   kyralo
+* @Last Modified time: 2020-08-12 22:21:48
 */
 import React, { useState } from 'react';
 import './style.less';
@@ -84,7 +84,7 @@ const UserAddress = (props) => {
           width: 70,
         }}
       >
-        <Option value="86">+86</Option>
+        <Select.Option value="86">+86</Select.Option>
       </Select>
     </Form.Item>
   );

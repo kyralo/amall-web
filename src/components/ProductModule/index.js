@@ -2,7 +2,7 @@
 * @Author: wangchen
 * @Date:   2020-07-09 11:26:32
 * @Last Modified by:   kyralo
-* @Last Modified time: 2020-08-07 01:13:58
+* @Last Modified time: 2020-08-14 00:01:39
 */
 import React from 'react';
 import './style.less';
@@ -22,20 +22,6 @@ const ProductModule = (props) => {
   return (
     <div className="_product_module">
 		<div className="_product_module_top_bar">
-			{/*<div style={{
-				fontSize: '12px',
-				textShadow: '0.3px 0.3px 0.3px rgb(0,0,0,0.7)',
-			}} className="_product_module_fir_kind">
-				<h1>家纺&家饰冰丝凉席</h1>
-			</div>
-			<div  style={{
-				fontSize: '15px',
-				textShadow: '0.3px 0.3px 0.3px rgb(0,0,0,0.7)',
-			}} className="_product_module_sec_kinds">
-				二级类型
-				 | 驱蚊用品 | 降温风扇 | 遮阳伞 | 夏凉被 |
-			</div>
-			*/}
 			<Breadcrumb>
 				<Breadcrumb.Item><span style={{
 					fontSize: '20px',
@@ -147,6 +133,10 @@ const ProductModule = (props) => {
 						fontSize: '18px',
 						paddingTop: '20px',
 						paddingRight: '10px',
+						cursor: "default",
+						overflow: 'hidden',
+						textOverflow: 'ellipsis',
+						whiteSpace: 'nowrap',
 					}}>
 						<span>热销商品推荐</span>
 					</div>
@@ -154,7 +144,11 @@ const ProductModule = (props) => {
 						width: '35%',
 						textAlign: 'right',
 						padding: '20px 5px 0px',
-						color: '#C8C8C8'
+						color: '#C8C8C8',
+						cursor: "pointer",
+						overflow: 'hidden',
+						textOverflow: 'ellipsis',
+						whiteSpace: 'nowrap',
 					}}>
 						<AIcon type="icon-amall-shuaxin" style={{
 							fontSize: '15px',

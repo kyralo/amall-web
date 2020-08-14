@@ -1,8 +1,8 @@
 /*
 * @Author: wangchen
 * @Date:   2020-07-23 20:36:46
-* @Last Modified by:   wangchen
-* @Last Modified time: 2020-07-25 21:19:05
+* @Last Modified by:   kyralo
+* @Last Modified time: 2020-08-12 18:40:08
 */
 import * as types from '@redux/types';
 
@@ -98,6 +98,10 @@ const typesCommands = {
 		checkList.map((item, index) => {
 			if ( !item.isDisabled && item.id == action.payload){
 				item.check = !item.check
+			}
+
+			if (item.num == '0') {
+				item.num = 1;
 			}
 		});
 		return Object.assign({}, state, {list: [...checkList]})
