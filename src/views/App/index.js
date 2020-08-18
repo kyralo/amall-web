@@ -1,32 +1,25 @@
 /*
 * @Author: wangchen
 * @Date:   2020-07-05 20:33:16
-* @Last Modified by:   wangchen
-* @Last Modified time: 2020-07-23 00:05:14
+* @Last Modified by:   kyralo
+* @Last Modified time: 2020-08-18 23:20:36
 */
 
-import React, {
-    Suspense,
-    useReducer,
-} from 'react';
+import React from 'react';
 
-import {useSize, UseRequestProvider} from 'ahooks';
-import {BrowserRouter, Switch} from 'react-router-dom';
+import { useSize, UseRequestProvider } from 'ahooks';
+import { Route,BrowserRouter,Switch,Redirect } from 'react-router-dom';
 
-import Layout from '@views/Layout';
-
-import {routes} from '@router';
-import renderRoutes from '@utils/renderRoutes';
 import axios from '@utils/axios';
 
-import common, * as reducer from '@store/common';
+import NotFound from '@comp/NotFound';
+import Layout from '@views/Layout';
+import Login from '@views/Login';
+import Register from '@views/Register';
 
-const Loading = React.lazy(() => import('@comp/Loading'));
-const authPath = '/home';
+import Demo from '@views/Demo';
 
 const App = (props) => {
-    const [state, dispatch] = useReducer(common, reducer.defaultState);
-    let authed = !(state.token || state.token === '' || state.token == null);
 
     return (
         <UseRequestProvider value={{
@@ -34,13 +27,18 @@ const App = (props) => {
           requestMethod: (param)=> axios(param),
         }}>
             <BrowserRouter>
-                <Layout>
-                    <Suspense fallback={<Loading/>}>
-                        <Switch>
-                            {renderRoutes(routes, authed, authPath)}
-                        </Switch>
-                    </Suspense>
-                </Layout>
+                <Switch>
+                    <Route path={`/`} exact>
+                        <Redirect to={`/amall/home`} />
+                    </Route>
+                    <Route path="/amall" component={Layout}/>
+                    <Route exact path="/login" component={Login} />
+                    <Route exact path="/register" component={Register} />
+
+                    <Route exact path={`/notfound`} component={NotFound} />
+
+                    <Redirect from={`/*`} to={`/notfound`} />
+                </Switch>
             </BrowserRouter>
         </UseRequestProvider>
     )

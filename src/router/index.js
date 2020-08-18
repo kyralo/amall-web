@@ -1,17 +1,18 @@
 /*
 * @Author: 王宸
 * @Date:   2019-12-23 17:13:35
-* @Last Modified by:   wangchen
-* @Last Modified time: 2020-08-03 17:45:57
+* @Last Modified by:   kyralo
+* @Last Modified time: 2020-08-18 23:04:42
 */
-
-
-import NotFound from '@comp/NotFound';
 
 import Home from '@views/Home';
 import Kind from '@views/Kind';
 import Commodity from '@views/Commodity';
-import User from '@views/User';
+import User, { 
+    UserInfo, Address, UserNotPayOrder, 
+    UserPayOrder, UserShopCollection, Password, 
+    AccountAssociated, AccountCancel 
+} from '@views/User';
 import Cart from '@views/Cart';
 import Seckill from '@views/Seckill';
 import Order from '@views/Order';
@@ -19,6 +20,7 @@ import Pay from '@views/Pay';
 import Merchant from '@views/Merchant';
 
 const routes = [
+
     {
         path: '/home',
         component: Home,
@@ -29,78 +31,116 @@ const routes = [
     {
         path: '/kind',
         component: Kind,
+        exact: false,
         requiresAuth: false,
     },
 
     {
         path: '/co',
         component: Commodity,
+        exact: false,
         requiresAuth: false,
     },
 
     {
         path: '/user',
         component: User,
+        exact: false,
         requiresAuth: false,
     },
 
     {
         path: '/cart',
         component: Cart,
+        exact: true,
         requiresAuth: false,
     },
 
     {
         path: '/seckill',
         component: Seckill,
+        exact: false,
         requiresAuth: false,
     },
 
     {
         path: '/order',
         component: Order,
+        exact: true,
         requiresAuth: false,
     },  
 
     {
         path: '/pay',
         component: Pay,
+        exact: true,
         requiresAuth: false,
     },  
 
     {
         path: '/merchant',
         component: Merchant,
+        exact: false,
+        requiresAuth: false,
+    },
+];
+
+const userRoutes = [
+    {
+        path: '/info',
+        component: UserInfo,
+        exact: true,
         requiresAuth: false,
     },
 
     {
-		path: '/error',
-		component: NotFound,
-		requiresAuth: false,
-	}
-    // {
-    //     path: '/advantage',
-    //     component: FyAdvantage,
-    //     children: [
-    //         {
-    //             path: '/advantage/advantage1',
-    //             component: FyAdvantageOne
-    //         },
-    //         {
-    //             path: '/advantage/advantage2',
-    //             component: FyAdvantageTwo
-    //         },
-    //         {
-    //             path: '/advantage/advantage3',
-    //             component: FyAdvantageThree
-    //         }
-    //     ]
-    // },
-    // {
-    //     path: '/faq',
-    //     component: FyCommonProblem
-    // },
+        path: '/address',
+        component: Address,
+        exact: true,
+        requiresAuth: false,
+    },
+
+    {
+        path: '/order/notpay',
+        component: UserNotPayOrder,
+        exact: true,
+        requiresAuth: false,
+    },
+
+    {
+        path: '/order/pay',
+        component: UserPayOrder,
+        exact: true,
+        requiresAuth: false,
+    },
+
+    {
+        path: '/collection/shop',
+        component: UserShopCollection,
+        exact: true,
+        requiresAuth: false,
+    },
+
+    {
+        path: '/security/password',
+        component: Password,
+        exact: true,
+        requiresAuth: false,
+    },
+
+    {
+        path: '/security/associate',
+        component: AccountAssociated,
+        exact: true,
+        requiresAuth: false,
+    },
+
+    {
+        path: '/security/cancel',
+        component: AccountCancel,
+        exact: true,
+        requiresAuth: false,
+    },     
 ];
  
-export {routes}
+export { routes, userRoutes };

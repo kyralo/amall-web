@@ -1,8 +1,8 @@
 /*
 * @Author: wangchen
 * @Date:   2020-07-27 13:30:02
-* @Last Modified by:   wangchen
-* @Last Modified time: 2020-07-31 11:59:59
+* @Last Modified by:   kyralo
+* @Last Modified time: 2020-08-15 19:16:17
 */
 import React from 'react';
 import './style.less';
@@ -25,9 +25,7 @@ const renderTabBar = (props, DefaultTabBar) => (
 const Product = (props) => {
 	return (
 		<div className="_product_card">
-	    	<div style={{
-	    		padding: '10px 0'
-	    	}}>
+	    	<div className="_spc_img">
 	    		<img src="https://img10.360buyimg.com/mobilecms/s280x280_jfs/t1/118096/10/2132/320426/5e9eb974E7c8f2abc/dc0a26999616d1f8.jpg.webp" alt=""/>
 	    	</div>
 	    	<div className="seckill-item_info">
@@ -178,12 +176,7 @@ const Seckill = (props) => {
 						}}>
 							{
 								arr1.map((item,key) => (
-									<div style={{
-										width: '24%',
-										padding: '10px 10px',
-										margin: '0.5%',
-										border: '1px solid rgb(254,1,6,0.4)'
-									}} key={key}>
+									<div className='_secp_item' key={key}>
 										<Product/>
 									</div>
 								))
@@ -198,12 +191,7 @@ const Seckill = (props) => {
 						}}>
 							{
 								arr1.map((item,key) => (
-									<div style={{
-										width: '24%',
-										padding: '10px 10px',
-										margin: '0.5%',
-										border: '1px solid rgb(254,1,6,0.4)'
-									}} key={key}>
+									<div className='_secp_item' key={key}>
 										<Product/>
 									</div>
 								))
@@ -218,12 +206,7 @@ const Seckill = (props) => {
 						}}>
 							{
 								arr1.map((item,key) => (
-									<div style={{
-										width: '24%',
-										padding: '10px 10px',
-										margin: '0.5%',
-										border: '1px solid rgb(254,1,6,0.4)'
-									}} key={key}>
+									<div className='_secp_item' key={key}>
 										<Product/>
 									</div>
 								))

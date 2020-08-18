@@ -43,9 +43,45 @@
 
       &:hover {
         border: 1px solid #E2231A;
-        color: #E2231A;
+        color: rgb(255,0,4);
       }
-      
+    }
+
+    ._user_shop_col {
+      ._usc_item {
+        width: 32%;
+        padding: 20px 0px 0;
+        margin: 1%;
+        border: 1px solid #F8F8F8;
+
+        ._usc_cancel {
+            width: 50%;
+            padding: 5px 0;
+            border-top: 1px solid #F8F8F8;
+            border-right: 0.5px solid #F8F8F8;
+            cursor: pointer;
+        }
+
+        ._usc_goto {
+            width: 50%;
+            padding: 5px 0;
+            border-top: 1px solid #F8F8F8;
+            border-left: 0.5px solid #F8F8F8;
+            cursor: pointer;
+        }
+        &:hover {
+          border: 1px solid rgb(255,0,4,0);
+          ._usc_cancel {
+            border-top: 1px solid rgb(255,0,4);
+            border-right: 1px solid rgb(255,0,4);
+          }
+          ._usc_goto {
+            border-top: 1px solid rgb(255,0,4);
+            // border-left: 0.1px solid rgb(255,0,4);
+          }
+        }
+        
+      }
     }
   }
 

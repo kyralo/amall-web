@@ -1,8 +1,8 @@
 /*
 * @Author: wangchen
 * @Date:   2020-07-07 09:34:33
-* @Last Modified by:   wangchen
-* @Last Modified time: 2020-07-14 11:30:49
+* @Last Modified by:   kyralo
+* @Last Modified time: 2020-08-15 19:14:19
 */
 import React from 'react';
 import './style.less';
@@ -15,7 +15,7 @@ const ProductCard = (props) => {
 
   return (
     <div className="_product_card">
-    	<div>
+    	<div className="_pc_img">
     		<img src="https://img10.360buyimg.com/mobilecms/s280x280_jfs/t1/118096/10/2132/320426/5e9eb974E7c8f2abc/dc0a26999616d1f8.jpg.webp" alt=""/>
     	</div>
     	<div className="seckill-item_info">

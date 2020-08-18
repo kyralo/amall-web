@@ -1,37 +1,67 @@
 /*
 * @Author: wangchen
 * @Date:   2020-06-25 16:41:40
-* @Last Modified by:   wangchen
-* @Last Modified time: 2020-07-05 16:42:18
+* @Last Modified by:   kyralo
+* @Last Modified time: 2020-08-18 23:25:35
 */
 import React from 'react';
 import { Route, Redirect, Switch } from 'react-router-dom';
 
-import Home from '@views/Home';
+import NotFound from '@comp/NotFound';
 
-const renderRoutes = (routes, authed, authPath = '/login', extraProps = {}, switchProps = {}) => routes ? (
+const urlmatch = (url1,url2) => { return url1+url2 };
+
+const routeCob = (prePath,route) => {
+  route.path = prePath;
+  return route;
+};
+
+const authPath = '/login';
+
+const renderSwitchRoutes = (routes, authed, props, fromPath = '/', toPath = '', extraProps = {}, switchProps = {}) => routes ? (
   <Switch {...switchProps}>
+
     {routes.map((route, i) => (
 
       <Route
         key={route.key || i}
-        path={route.path}
-        exact={route.exact}
-        strict={route.strict}
-        render={(props) => {
-          if (!route.requiresAuth || authed || route.path === authPath) {
-            return <route.component {...props} {...extraProps} route={route} />
-          }
-          return <Redirect to={{ pathname: authPath, state: { from: props.location } }} />
-        }}
+        path={urlmatch(props.match.path,route.path,route)}
+        exact={route.exact ? route.exact: false}
+        render={
+            props =>{
+                return (!route.requiresAuth || authed || route.path === authPath)?
+                <Route component={route.component} {...props}/> : <Redirect to='/login'/>
+            }
+        }
+      />
+    ))}
+     {toPath !== '' ? <Redirect from={`${fromPath}`} to={`${toPath}`} /> : null}
+  </Switch>
+) : null;
+
+const renderRoutes = (routes, authed, props, fromPath = '/', toPath = '', extraProps = {}, switchProps = {}) => routes ? (
+  <React.Fragment>
+
+    {routes.map((route, i) => (
+
+      <Route
+        key={route.key || i}
+        path={urlmatch(props.match.path,route.path,route)}
+        exact={route.exact ? route.exact: false}
+        render={
+            props =>{
+                return (!route.requiresAuth || authed || route.path === authPath)?
+                <Route component={route.component} {...props}/> : <Redirect to='/login'/>
+            }
+        }
       />
     ))}
 
-    <Redirect push to="/home"/>
-  </Switch>
-) : null
+    {toPath !== '' ? <Redirect from={`${fromPath}`} to={`${toPath}`} /> : null}
+  </React.Fragment>
+) : null;
 
-export default renderRoutes;
+export { renderSwitchRoutes, renderRoutes };
 
 
 // //登陆之后返回原先要去的页面login函数

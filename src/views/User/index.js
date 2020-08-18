@@ -2,7 +2,7 @@
 * @Author: wangchen
 * @Date:   2020-07-20 09:56:59
 * @Last Modified by:   kyralo
-* @Last Modified time: 2020-08-15 02:24:40
+* @Last Modified time: 2020-08-18 23:27:24
 */
 import React, {useState,Suspense} from 'react';
 import './style.less';
@@ -16,13 +16,19 @@ import {
     List,
     Tooltip,
     Drawer,
-    Divider
+    Divider,
+    Avatar,
+    Space
 } from 'antd';
 
-import {Route,Link,Redirect} from "react-router-dom";
+import {Link} from "react-router-dom";
 
 import ImgCrop from 'antd-img-crop';
 import {AIcon} from '@utils/icon';
+import {oneToTwoArr} from '@utils/common';
+
+import { renderSwitchRoutes } from '@utils/renderRoutes';
+import { userRoutes } from '@router';
 
 import Loading from '@comp/Loading'
 import UserAddress from '@views/UserAddress';
@@ -31,6 +37,9 @@ const {SubMenu} = Menu;
 const {Content, Footer, Sider} = Layout;
 
 const User = (props) => {
+
+    const route = { path: props.match.path };
+
     return (
         <div className="_user">
             <Content style={{padding: '0 50px', width: "80%",margin: "0 auto",}}>
@@ -44,36 +53,44 @@ const User = (props) => {
                         >
                             <Menu.Item key="sub1" icon={<AIcon style={{fontSize: '18px'}}
                                                                type="icon-amall-iconinterfaceleft_menuuserinfo"/>}>
-                                <Link to={`${props.route.path}/info`}><span>基本信息</span></Link>
+                                <Link to={`${route.path}/info`}><span>基本信息</span></Link>
                             </Menu.Item>
                             <Menu.Item key="sub2" icon={<AIcon style={{fontSize: '18px'}} type="icon-amall-gouwuche"/>}>
-                                <Link to={`/cart`}><span>购物车</span></Link>
+                                <Link  to={`/amall/cart`}><span>购物车</span></Link>
                             </Menu.Item>
                             <SubMenu key="sub3" icon={<AIcon style={{fontSize: '18px'}} type="icon-amall-dingdan"/>}
                                      title={<span>订单管理</span>}>
                                 <Menu.Item key="sub3-1">
-                                    <Link to={`${props.route.path}/order/notpay`}><span>待付款</span></Link>
+                                    <Link  to={`${route.path}/order/notpay`}><span>待付款</span></Link>
                                 </Menu.Item>
                                 <Menu.Item key="sub3-2">
-                                    <Link to={`${props.route.path}/order/pay`}><span>已付款</span></Link>
+                                    <Link  to={`${route.path}/order/pay`}><span>已付款</span></Link>
                                 </Menu.Item>
                             </SubMenu>
                             <SubMenu key="sub4" icon={<AIcon style={{fontSize: '18px'}} type="icon-amall-collection"/>}
                                      title={<span>我的收藏</span>}>
-                                <Menu.Item key="sub4-1"><span>店铺收藏</span></Menu.Item>
+                                <Menu.Item key="sub4-1">
+                                    <Link to={`${route.path}/collection/shop`}><span>店铺收藏</span></Link>
+                                </Menu.Item>
                             </SubMenu>
 
                             <SubMenu key="sub5" icon={<AIcon style={{fontSize: '18px'}} type="icon-amall-didian"/>}
                                      title={<span>地址管理</span>}>
                                 <Menu.Item key="sub5-1">
-                                    <Link to={`${props.route.path}/address`}><span>配送地址</span></Link>
+                                    <Link to={`${route.path}/address`}><span>配送地址</span></Link>
                                 </Menu.Item>
                             </SubMenu>
                             <SubMenu key="sub6" icon={<AIcon style={{fontSize: '18px'}} type="icon-amall-anquan"/>}
                                      title={<span>安全设置</span>}>
-                                <Menu.Item key="sub6-1"><span>设置密码</span></Menu.Item>
-                                <Menu.Item key="sub6-2"><span>账号关联</span></Menu.Item>
-                                <Menu.Item key="sub6-3"><span>账号注销</span></Menu.Item>
+                                <Menu.Item key="sub6-1">
+                                    <Link to={`${route.path}/security/password`}><span>设置密码</span></Link>
+                                </Menu.Item>
+                                <Menu.Item key="sub6-2">
+                                    <Link to={`${route.path}/security/associate`}><span>账号关联</span></Link>
+                                </Menu.Item>
+                                <Menu.Item key="sub6-3">
+                                    <Link to={`${route.path}/security/cancel`}><span>账号注销</span></Link>
+                                </Menu.Item>
                             </SubMenu>
                             <Menu.Item key="sub7" icon={<AIcon style={{fontSize: '18px'}} type="icon-amall-tuichudenglu"/>}>
                                 <span>退出登录</span>
@@ -86,15 +103,7 @@ const User = (props) => {
                                  style={{minHeight: '30vh', backgroundColor: '#FFF'}}>
 
                                 <Suspense fallback={<Loading/>}>
-                                    <Route exact path={`${props.route.path}/`}>
-                                        <Redirect to={`${props.route.path}/info`}/>
-                                    </Route>
-                                    <Route path={`${props.route.path}/info`} exact component={UserInfo} />
-                                    <Route path={`${props.route.path}/address`} exact component={Address} />
-                                    <Route path={`${props.route.path}/order/notpay`} exact component={UserNotPayOrder} />
-                                    <Route path={`${props.route.path}/order/pay`} exact component={UserPayOrder} />
-
-                                    <Redirect to={`${props.route.path}/info`}/>
+                                    {renderSwitchRoutes(userRoutes, false, props, `${route.path}`, `${route.path}/info`)}
                                 </Suspense>
 
                             </div>
@@ -108,7 +117,7 @@ const User = (props) => {
 
 // UserInfo
 
-const UserInfo = (props) => {
+export const UserInfo = (props) => {
     const [fileList, setFileList] = useState([
         {
             uid: '-1',
@@ -236,7 +245,7 @@ const UserInfo = (props) => {
 // Address
 
 const data = [0,1,2,3,4];
-const Address = (props) => {
+export const Address = (props) => {
 
     const [add,setAdd] = useState(false);
 
@@ -373,7 +382,7 @@ const items = [
         ],
     },
 ];
-const UserOrderItem = (props) => {
+export const UserOrderItem = (props) => {
     return (
         <div className='_order_item'>
             <div style={{
@@ -417,7 +426,7 @@ const UserOrderItem = (props) => {
         </div>
     );
 };
-const UserOrder = (props) => {
+export const UserOrder = (props) => {
 
     return (
         <div style={{width: '100%'}}>
@@ -510,7 +519,7 @@ const UserOrder = (props) => {
 };
 
 // 待付款
-const UserNotPayOrder = (props) => {
+export const UserNotPayOrder = (props) => {
     return (
         <div style={{width: '100%'}}>
             <UserOrder isPay={false}/>
@@ -519,7 +528,7 @@ const UserNotPayOrder = (props) => {
 }
 
 // 已付款
-const UserPayOrder = (props) => {
+export const UserPayOrder = (props) => {
     return (
         <div style={{width: '100%'}}>
             <UserOrder isPay={true}/>
@@ -527,10 +536,134 @@ const UserPayOrder = (props) => {
     );
 }
 
-const Password = (props) => {
+
+// 用户收藏
+
+// 用户 店铺收藏
+const uscArr = [0,1,2,3,4,5,6,7,8,9,10];
+export const UserShopCollection = (props) => {
+    return (
+        <div className="_user_shop_col">
+            <div style={{
+                width: '100%',
+                textAlign: 'left', 
+                fontSize: '16px', 
+                padding: '0 40px'
+            }}>
+                <h1>店铺收藏</h1>
+                <Divider/>
+            </div>
+            <div style={{
+                width: '100%',
+                fontSize: '16px', 
+                padding: '0 40px',
+                textAlign: 'center',
+            }}>
+                {
+                    oneToTwoArr(uscArr,3).map((item,key) => (
+                        <div key={key} style={{
+                            width: '100%',
+                            display: 'inline-flex',
+                            flexFlow: 'row nowrap'
+                        }}>
+                            {
+                                item.map((item1,key1) => (
+                                    <div key={key1} className="_usc_item">
+                                        <div style={{
+                                            padding: '0 10px',
+                                        }}><Avatar size={64} src='https://view.kyralo.online/aurora/user/avatar/58068837cdcd40dfbd71314fb3e084d7_avatar.png'/></div>
+                                        <div style={{
+                                            padding: '10px 10px',
+                                            overflow: "hidden",
+                                            textOverflow: "ellipsis",
+                                            whiteSpace: "nowrap",
+                                            fontSize: '15px',
+                                            color: '#000'
+                                        }}><span>椰子船长 
+                                            <span> / </span> 
+                                            Ezicoco女鞋店
+                                            </span>
+                                        </div>
+                                        <div style={{
+                                            width: '100%',
+                                            display: 'inline-flex',
+                                            flexFlow: 'row nowrap'
+                                        }}>
+                                            <div className="_usc_cancel">
+                                                <span style={{
+                                                    width: '100%',
+                                                    textAlign: 'center',
+                                                }}>取消关注</span>
+                                            </div>
+                                            <div className="_usc_goto">
+                                                <span style={{
+                                                    width: '100%',
+                                                    textAlign: 'center',
+                                                }}>进入店铺</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                ))
+                            }
+                        </div>
+                    ))
+                }
+            </div>
+        </div>
+    );
+};
+
+
+// 密码修改
+
+export const Password = (props) => {
     return (
         <div>
-            
+            <div style={{
+                width: '100%',
+                textAlign: 'left', 
+                fontSize: '16px', 
+                padding: '0 40px'
+            }}>
+                <h1>密码修改</h1>
+                <Divider/>
+            </div>
+        </div>
+    );
+};
+
+// 账号关联
+
+export const AccountAssociated = (props) => {
+    return (
+        <div>
+            <div style={{
+                width: '100%',
+                textAlign: 'left', 
+                fontSize: '16px', 
+                padding: '0 40px'
+            }}>
+                <h1>账号关联</h1>
+                <Divider/>
+            </div>
+        </div>
+    );
+};
+
+// 账号注销
+
+export const AccountCancel = (props) => {
+    return (
+        <div>
+            <div style={{
+                width: '100%',
+                textAlign: 'left', 
+                fontSize: '16px', 
+                padding: '0 40px'
+            }}>
+                <h1>账号注销</h1>
+                <Divider/>
+            </div>
         </div>
     );
 };
