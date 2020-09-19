@@ -1,8 +1,8 @@
 /*
 * @Author: wangchen
 * @Date:   2020-07-03 13:35:32
-* @Last Modified by:   wangchen
-* @Last Modified time: 2020-07-06 21:26:10
+* @Last Modified by:   kyralo
+* @Last Modified time: 2020-09-18 19:15:17
 */
 import React from 'react';
 import { Carousel } from 'react-responsive-carousel';
@@ -26,13 +26,13 @@ const Slideshow = (props) => {
         	transitionTime="800"
         >
             <div>
-                <img src="https://cdn.kyralo.online/blog/blog-25.jpg!blog" />
+                <img src="https://aecpm.alicdn.com/simba/img/TB12NW9kH1YBuNjSszhSuwUsFXa.jpg" />
             </div>
             <div>
-                <img src="https://cdn.kyralo.online/blog/blog-25.jpg!blog" />
+                <img src="https://aecpm.alicdn.com/simba/img/TB12NW9kH1YBuNjSszhSuwUsFXa.jpg" />
             </div>
             <div>
-                <img src="https://cdn.kyralo.online/blog/blog-23.jpg!blog" />
+                <img src="https://aecpm.alicdn.com/simba/img/TB12NW9kH1YBuNjSszhSuwUsFXa.jpg" />
             </div>
         </Carousel>
     </div>

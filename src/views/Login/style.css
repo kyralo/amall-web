@@ -1,0 +1,27 @@
+/*
+* @Author: kyralo
+* @Date:   2020-08-19 09:49:21
+* @Last Modified by:   kyralo
+* @Last Modified time: 2020-08-19 10:17:06
+*/
+#components-form-demo-normal-login .login-form {
+  max-width: 300px;
+}
+#components-form-demo-normal-login .login-form-forgot {
+  float: right;
+}
+#components-form-demo-normal-login .ant-col-rtl .login-form-forgot {
+  float: left;
+}
+#components-form-demo-normal-login .login-form-button {
+  width: 100%;
+}
+
+._login {
+	width: 100vw;
+	height: 100vh;
+	background-image: url("./amall_hemei.png");
+	background-repeat: no-repeat;
+	background-size: auto 450px;
+	background-position: 100% 100%;
+}

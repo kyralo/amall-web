@@ -2,11 +2,13 @@
 * @Author: wangchen
 * @Date:   2020-06-24 13:53:10
 * @Last Modified by:   kyralo
-* @Last Modified time: 2020-08-07 01:18:19
+* @Last Modified time: 2020-09-18 19:31:35
 */
 import React, {useReducer, useState, useLayoutEffect} from 'react';
 
 import {useScroll,useSize} from 'ahooks';
+
+import {Link} from "react-router-dom";
 
 import {Avatar,Carousel,Badge,Divider } from 'antd';
 import {UserOutlined} from '@ant-design/icons';
@@ -54,21 +56,21 @@ const PCHome = (props) => (
             <div className="fs_pc_theme_shop">
                 {
                     arr.map((item, key) => (
-                        <div key={key} className="fs_pc_theme_shop_content">
-                            <div className="fs_pc_fir_kind">
-                                <div>
-                                    <AIcon type='icon-amall-Product'/>
+                            <div key={key} className="fs_pc_theme_shop_content">
+                                <div className="fs_pc_fir_kind">
+                                    <div>
+                                        <AIcon type='icon-amall-Product'/>
+                                    </div>
+                                    <div>
+                                        男装{item}
+                                    </div>
                                 </div>
-                                <div>
-                                    男装{item}
+                                <div className="fs_pc_sec_kind">
+                                    <Textshow style={{
+                                        height: '100%',
+                                    }}/>
                                 </div>
                             </div>
-                            <div className="fs_pc_sec_kind">
-                                <Textshow style={{
-                                    height: '100%',
-                                }}/>
-                            </div>
-                        </div>
                     ))
                 }
             </div>
@@ -82,6 +84,7 @@ const PCHome = (props) => (
                     padding: '20px 20px'
                 }}>
                     <div>
+                        <Link  to={`/amall/user`}>
                         <div><Avatar style={{
                             cursor: "pointer",
                         }} size={64} icon={<UserOutlined/>}/></div>
@@ -93,6 +96,7 @@ const PCHome = (props) => (
                                 <span style={{fontSize: '16px'}}>未登录</span>
                             }
                         </div>
+                        </Link>
                     </div>
                     <Divider />
                     

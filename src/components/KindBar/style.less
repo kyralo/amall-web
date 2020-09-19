@@ -2,12 +2,23 @@
 	width: 100%;
 	padding: 10px 0;
 	font-size: 15px;	
-	._bar {
+	._pri_bar {
 		width: 100%;
 		display: inline-flex;
 		padding: 5px 10px;
 		div {
 			margin: 10px 20px;
+			cursor: pointer;
+		}
+	}
+
+	._sec_bar {
+		width: 100%;
+		display: inline-flex;
+		padding: 5px 10px;
+		div {
+			margin: 10px 20px;
+			cursor: pointer;
 		}
 	}
 	
@@ -16,7 +27,7 @@
 		display: inline-flex;
 		padding: 5px 10px;
 		div {
-			margin: 0 20px;
+			margin: 10px 20px;
 		}
 		._options_range_price {
 			span  {
@@ -27,6 +38,8 @@
 				width: 100px;
 				border: 0.5px solid #999;
 				padding: 2px 10px;
+				text-align: center;
+				color: #000;
 
 				&:focus {
 					outline: rgba(0, 0, 0, 0.08) auto 1px;

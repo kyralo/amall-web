@@ -1,15 +1,15 @@
 /*
 * @Author: wangchen
 * @Date:   2020-07-07 18:12:21
-* @Last Modified by:   wangchen
-* @Last Modified time: 2020-07-14 21:28:46
+* @Last Modified by:   kyralo
+* @Last Modified time: 2020-09-18 20:37:25
 */
 import * as types from '@redux/types';
 
 export const defaultState = {
     currentSeckill: {
         secTimeField: '20:00',
-    		secDate: '2020-07-14 23:30:00',
+    		secDate: '2020-11-14 23:30:00',
     },
 
 };

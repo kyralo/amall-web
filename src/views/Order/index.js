@@ -2,10 +2,12 @@
 * @Author: wangchen
 * @Date:   2020-07-29 00:23:42
 * @Last Modified by:   kyralo
-* @Last Modified time: 2020-08-15 01:16:36
+* @Last Modified time: 2020-08-23 10:07:53
 */
 import React from 'react';
 import './style.less';
+
+import {Link} from "react-router-dom";
 
 import { Steps,Select,Divider,Radio } from 'antd';
 
@@ -200,7 +202,13 @@ const Order = (props) => {
 				<div className="_osc_address">
 					<div style={{ width: '100%', display: 'inline-flex', flexFlow: 'row nowrap'}}>
 						<div style={{width: '50%', textAlign: 'left'}}><h2>收货人信息</h2></div>
-						<div style={{width: '50%', textAlign: 'right', padding: '0px 5px', fontSize: '13px'}}>新增地址</div>
+						<div style={{width: '50%', textAlign: 'right', padding: '0px 5px', fontSize: '13px'}}>
+							<Link  to={`/amall/user/address`}>
+								<span style={{
+									color: 'rgb(148,155,155)'
+								}}>新增地址</span>
+							</Link>
+						</div>
 					</div>
 					<div style={{ width: '100%', padding: '5px 20px'}}>
 						<Select defaultValue={0} style={{ width: '100%', margin: '10px 0'}}>

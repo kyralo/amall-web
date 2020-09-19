@@ -2,7 +2,7 @@
 * @Author: wangchen
 * @Date:   2020-06-25 16:41:40
 * @Last Modified by:   kyralo
-* @Last Modified time: 2020-08-18 23:25:35
+* @Last Modified time: 2020-08-19 09:35:54
 */
 import React from 'react';
 import { Route, Redirect, Switch } from 'react-router-dom';
@@ -39,7 +39,7 @@ const renderSwitchRoutes = (routes, authed, props, fromPath = '/', toPath = '', 
   </Switch>
 ) : null;
 
-const renderRoutes = (routes, authed, props, fromPath = '/', toPath = '', extraProps = {}, switchProps = {}) => routes ? (
+const renderRoutes = (routes, authed, props, extraProps = {}, switchProps = {}) => routes ? (
   <React.Fragment>
 
     {routes.map((route, i) => (
@@ -57,7 +57,6 @@ const renderRoutes = (routes, authed, props, fromPath = '/', toPath = '', extraP
       />
     ))}
 
-    {toPath !== '' ? <Redirect from={`${fromPath}`} to={`${toPath}`} /> : null}
   </React.Fragment>
 ) : null;
 

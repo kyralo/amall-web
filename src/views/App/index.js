@@ -2,7 +2,7 @@
 * @Author: wangchen
 * @Date:   2020-07-05 20:33:16
 * @Last Modified by:   kyralo
-* @Last Modified time: 2020-08-18 23:20:36
+* @Last Modified time: 2020-09-18 20:56:18
 */
 
 import React from 'react';
@@ -17,7 +17,7 @@ import Layout from '@views/Layout';
 import Login from '@views/Login';
 import Register from '@views/Register';
 
-import Demo from '@views/Demo';
+import { history } from '@utils/history';
 
 const App = (props) => {
 
@@ -26,7 +26,7 @@ const App = (props) => {
           refreshOnWindowFocus: true,
           requestMethod: (param)=> axios(param),
         }}>
-            <BrowserRouter>
+            <BrowserRouter history={history}>
                 <Switch>
                     <Route path={`/`} exact>
                         <Redirect to={`/amall/home`} />
