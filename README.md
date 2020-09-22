@@ -1,68 +1,59 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## 前言
 
-## Available Scripts
+后续过程持续更新...
 
-In the project directory, you can run:
+## 介绍
 
-### yarn start
+Amall项目是一个B2C模式的电商网站, 前端 UI 原型是参考蘑菇街商城界面进行设计, 
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+以react框架为技术骨架来开发.
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+## 用到的技术
 
-### yarn test
+- react + react-hooks
+- UI   antd
+- 状态管理 react-redux
+- 路由使用 react-router, react-router-dom
+- 异步使用 react-saga
+- 请求使用 axios
+- 辅助工具 ahooks
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## 后端项目地址
 
-### yarn build
+[aurora-server](https://github.com/kyralo/aurora-server)
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## 效果图
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+### Home
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+![](https://cdn.kyralo.online/web/amall/home-1.png)
 
-### yarn eject
+![](https://cdn.kyralo.online/web/amall/home-2.png)
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+![](https://cdn.kyralo.online/web/amall/home-3.png)
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+### User
 
-## Learn More
+![](https://cdn.kyralo.online/web/amall/user-1.png)
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+![](https://cdn.kyralo.online/web/amall/user-2.png)
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+![](https://cdn.kyralo.online/web/amall/user-3.png)
 
-### Code Splitting
+### Commodity
+![](https://cdn.kyralo.online/web/amall/co-1.png)
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
+### Cart
 
-### Analyzing the Bundle Size
+![](https://cdn.kyralo.online/web/amall/cart-1.png)
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
 
-### Making a Progressive Web App
+### Merchant
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
+![](https://cdn.kyralo.online/web/amall/merchant-1.png)
 
-### Advanced Configuration
+### Order
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### yarn build fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+![](https://cdn.kyralo.online/web/amall/order-1.png)
