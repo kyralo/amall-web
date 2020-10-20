@@ -22,7 +22,8 @@ Amall项目是一个B2C模式的电商网站, 前端 UI 原型是参考蘑菇街
 
 [aurora-server](https://github.com/kyralo/aurora-server)
 
-## 效果图
+## 效果图 [GitHub上看不到图片效果可转至Gitee](https://gitee.com/kyralo/amall-web)
+
 
 ### Home
 
