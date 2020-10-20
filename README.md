@@ -49,7 +49,6 @@ Amall项目是一个B2C模式的电商网站, 前端 UI 原型是参考蘑菇街
 
 ![](https://cdn.kyralo.online/web/amall/cart-1.png)
 
-
 ### Merchant
 
 ![](https://cdn.kyralo.online/web/amall/merchant-1.png)
